@@ -11,16 +11,13 @@ describe("Workflo hero messaging and immersive 3D architecture", () => {
   it("retains immersive 3D elements, trial signup flow, and interactive sections", () => {
     const homeSource = readFileSync(new URL("../pages/Home.tsx", import.meta.url), "utf8");
 
-    // 3D Immersive Architecture
-    expect(homeSource).toContain("ImmersiveDimensionCanvas");
-    expect(homeSource).toContain("DimensionHUD");
-    expect(homeSource).toContain("HolographicCardsSection");
-    expect(homeSource).toContain("FeatureDashboard");
-    expect(homeSource).toContain("StickyScrollWorkflow");
+    // 3D & GSAP WebGL Architecture
+    expect(homeSource).toContain("hero-canvas");
+    expect(homeSource).toContain("workflow-canvas-container");
+    expect(homeSource).toContain("pricing");
 
-    // Trial Signup Flow
+    // Trial / Waitlist Signup Flow
     expect(homeSource).toContain("/api/trial-signups");
-    expect(homeSource).toContain("<Dialog open={trialOpen}");
     expect(homeSource).toContain("trialConsentAttempted");
     expect(homeSource).toContain("Please confirm consent before requesting a trial.");
   });
