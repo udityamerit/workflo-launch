@@ -20,6 +20,7 @@ import {
   Zap,
   Activity,
   CheckCircle2,
+  type LucideIcon,
 } from "lucide-react";
 
 interface CardData {
@@ -30,7 +31,7 @@ interface CardData {
   subtitle: string;
   metric: string;
   metricLabel: string;
-  icon: React.ComponentType<{ size?: number; className?: string }>;
+  icon: LucideIcon;
   description: string;
   chips: string[];
   telemetry: { label: string; val: string }[];
