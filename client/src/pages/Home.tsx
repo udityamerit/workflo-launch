@@ -1,6 +1,13 @@
 /**
- * Home — Workflo landing page composed of 7 professionally animated sections,
- * matching the design.jpeg reference. Each section animates part-by-part.
+ * Home — Immersive 3D Workflo Landing Experience.
+ * Features:
+ * - Real-time Three.js hyperspace warp tunnel & cybernetic grid background
+ * - Real-time Dimension HUD telemetry
+ * - Interactive 3D Hero Keycap / Quantum Core
+ * - Interactive Count-Up Telemetry & Product Console (FeatureDashboard)
+ * - Sticky-Scroll 4-Tier 3D Isometric Workflow (StickyScrollWorkflow)
+ * - Interactive 3D Holographic Cryptographic Artifact Cards (HolographicCardsSection)
+ * - Fully wired Trial / Early Access modal
  */
 import { useState, type FormEvent } from "react";
 import { Link } from "wouter";
@@ -13,11 +20,14 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Checkbox } from "@/components/ui/checkbox";
+
 import StickyNav from "../components/landing/StickyNav";
-import HeroSection from "../components/landing/HeroSection";
-import FeaturesSection from "../components/landing/FeaturesSection";
-import StatsSection from "../components/landing/StatsSection";
-import HowItWorksSection from "../components/landing/HowItWorksSection";
+import Hero from "../components/Hero";
+import FeatureDashboard from "../components/FeatureDashboard";
+import StickyScrollWorkflow from "../components/StickyScrollWorkflow";
+import HolographicCardsSection from "../components/3d/HolographicCardsSection";
+import ImmersiveDimensionCanvas from "../components/3d/ImmersiveDimensionCanvas";
+import DimensionHUD from "../components/3d/DimensionHUD";
 import CtaSection from "../components/landing/CtaSection";
 import Footer from "../components/landing/Footer";
 
@@ -87,26 +97,43 @@ export default function Home() {
   };
 
   return (
-    <div className="landing-page">
-      {/* A. Sticky Nav */}
+    <div className="relative min-h-screen bg-[#060606] text-white selection:bg-[#A3E635] selection:text-black">
+      {/* ── 0. Fixed 3D WebGL Background Canvas & Telemetry HUD ── */}
+      <ImmersiveDimensionCanvas />
+      <DimensionHUD />
+
+      {/* ── A. Sticky Navigation ── */}
       <StickyNav onJoinWaitlist={openWaitlist} />
 
-      {/* B. Hero Section */}
-      <HeroSection onJoinWaitlist={openWaitlist} />
+      {/* ── B. 3D Hero Section ── */}
+      <div id="hero">
+        <Hero
+          onJoinEarlyAccess={openWaitlist}
+          onBookDemo={openWaitlist}
+        />
+      </div>
 
-      {/* C. Features Section — "QA that thinks like you ship" */}
-      <FeaturesSection />
+      {/* ── C. Observable Performance Telemetry & Console (FeatureDashboard) ── */}
+      <div id="stats">
+        <FeatureDashboard />
+      </div>
 
-      {/* D. Stats + Product Dashboard */}
-      <StatsSection />
+      {/* ── D. Sticky-Scroll 3D 4-Tier Pipeline (StickyScrollWorkflow) ── */}
+      <div id="pipeline">
+        <StickyScrollWorkflow />
+      </div>
 
-      {/* E. How It Works — "From commit to confident" */}
-      <HowItWorksSection />
+      {/* ── E. Futuristic 3D Holographic Cards in the Last Section ── */}
+      <div id="cards">
+        <HolographicCardsSection />
+      </div>
 
-      {/* F. Closing CTA */}
-      <CtaSection onJoinWaitlist={openWaitlist} />
+      {/* ── F. Closing CTA Section ── */}
+      <div id="cta">
+        <CtaSection onJoinWaitlist={openWaitlist} />
+      </div>
 
-      {/* G. Footer */}
+      {/* ── G. Footer ── */}
       <Footer />
 
       {/* ── Trial Signup Modal ── */}
