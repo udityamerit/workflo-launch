@@ -946,41 +946,148 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right: Feature List */}
+            {/* Right: Dynamic Visual Metrics & Animated Diagrams */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="feature-row flex items-start gap-5 opacity-0 transform translate-x-10">
-                <div className="w-12 h-12 rounded-xl bg-[#111] border border-gray-800 flex items-center justify-center text-gray-400 shrink-0 shadow-lg">
-                  <i className="ph ph-robot text-2xl text-neon-green" />
+              {/* Feature 1: AI-generated test suites with AST Synthesis Pipeline */}
+              <div className="feature-row bg-[#080808]/90 border border-white/[0.08] hover:border-[#c8ff3d]/30 rounded-2xl p-5 opacity-0 transform translate-x-10 transition-colors group">
+                <div className="flex items-center justify-between gap-4 mb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-[#111] border border-white/[0.08] flex items-center justify-center text-[#c8ff3d] shrink-0">
+                      <i className="ph ph-robot text-xl" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white tracking-tight">AI-generated test suites</h3>
+                      <span className="text-[10px] font-mono text-[#c8ff3d] uppercase tracking-wider">AST Synthesis Pipeline</span>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-2 py-0.5 rounded">
+                    ACTIVE
+                  </span>
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">AI-generated test suites</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    Auto-generate comprehensive candidate suites directly from code diffs and visual state trees.
-                  </p>
+
+                {/* Dynamic Visual Diagram: AST Pipeline Flow */}
+                <div className="p-3 bg-[#0d0d0d] rounded-xl border border-white/[0.05] font-mono text-[11px] mb-3">
+                  <div className="flex items-center justify-between text-gray-400 text-[10px] mb-2">
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#c8ff3d] animate-pulse" />
+                      SYNTHESIS PROGRESS
+                    </span>
+                    <span className="text-[#c8ff3d]">380ms (P95)</span>
+                  </div>
+                  <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-[#c8ff3d] to-emerald-400 progress-track-fill" />
+                  </div>
+                  <div className="flex items-center justify-between text-[9px] text-gray-500 mt-2">
+                    <span>DIFF PARSE</span>
+                    <span>→</span>
+                    <span>AST GRAPH</span>
+                    <span>→</span>
+                    <span className="text-[#c8ff3d] font-bold">SPEC GENERATED</span>
+                  </div>
+                </div>
+
+                {/* Live Metrics Grid */}
+                <div className="grid grid-cols-2 gap-2 text-[11px] font-mono">
+                  <div className="p-2 bg-white/[0.02] border border-white/[0.04] rounded-lg">
+                    <span className="text-gray-500 text-[10px] block">Path Coverage</span>
+                    <strong className="text-white">99.8% Comprehensive</strong>
+                  </div>
+                  <div className="p-2 bg-white/[0.02] border border-white/[0.04] rounded-lg">
+                    <span className="text-gray-500 text-[10px] block">Invariants</span>
+                    <strong className="text-[#c8ff3d]">48 Auto-verified / 0 False</strong>
+                  </div>
                 </div>
               </div>
 
-              <div className="feature-row flex items-start gap-5 opacity-0 transform translate-x-10">
-                <div className="w-12 h-12 rounded-xl bg-[#111] border border-gray-800 flex items-center justify-center text-gray-400 shrink-0 shadow-lg">
-                  <i className="ph ph-eye text-2xl text-neon-green" />
+              {/* Feature 2: Visual regression with Split-Viewport Matrix & Laser Scanline */}
+              <div className="feature-row bg-[#080808]/90 border border-white/[0.08] hover:border-[#c8ff3d]/30 rounded-2xl p-5 opacity-0 transform translate-x-10 transition-colors group">
+                <div className="flex items-center justify-between gap-4 mb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-[#111] border border-white/[0.08] flex items-center justify-center text-[#c8ff3d] shrink-0">
+                      <i className="ph ph-eye text-xl" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white tracking-tight">Visual regression</h3>
+                      <span className="text-[10px] font-mono text-[#c8ff3d] uppercase tracking-wider">Multi-Viewport Diff Matrix</span>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-2 py-0.5 rounded">
+                    0.00% ΔE
+                  </span>
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">Visual regression</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    Pixel-perfect visual diffing across thousands of viewport combinations instantly.
-                  </p>
+
+                {/* Animated Diagram: Viewport Preview with Sweeping Laser Scanline */}
+                <div className="relative h-20 bg-[#0d0d0d] rounded-xl border border-white/[0.05] p-3 overflow-hidden font-mono text-[11px] flex flex-col justify-between mb-3">
+                  <div className="laser-scanline" />
+                  <div className="flex items-center justify-between text-[10px] text-gray-400 relative z-10">
+                    <span className="text-gray-300">DESKTOP 1440×900</span>
+                    <span className="text-gray-500">⟷</span>
+                    <span className="text-gray-300">MOBILE 390×844</span>
+                  </div>
+                  <div className="flex items-center justify-between text-[10px] relative z-10">
+                    <span className="text-emerald-400">1,280 / 1,280 IDENTICAL PIXELS</span>
+                    <span className="text-[9px] text-gray-500">TOLERANCE: 0.05%</span>
+                  </div>
+                </div>
+
+                {/* Live Metrics Grid */}
+                <div className="grid grid-cols-2 gap-2 text-[11px] font-mono">
+                  <div className="p-2 bg-white/[0.02] border border-white/[0.04] rounded-lg">
+                    <span className="text-gray-500 text-[10px] block">Visual Drift</span>
+                    <strong className="text-white">0.00% Zero Shift</strong>
+                  </div>
+                  <div className="p-2 bg-white/[0.02] border border-white/[0.04] rounded-lg">
+                    <span className="text-gray-500 text-[10px] block">Cross-Browser</span>
+                    <strong className="text-[#c8ff3d]">Chromium · WebKit · Gecko</strong>
+                  </div>
                 </div>
               </div>
 
-              <div className="feature-row flex items-start gap-5 opacity-0 transform translate-x-10">
-                <div className="w-12 h-12 rounded-xl bg-[#111] border border-gray-800 flex items-center justify-center text-gray-400 shrink-0 shadow-lg">
-                  <i className="ph ph-bug text-2xl text-neon-green" />
+              {/* Feature 3: Smart flake detection with Non-deterministic Quarantine Radar */}
+              <div className="feature-row bg-[#080808]/90 border border-white/[0.08] hover:border-[#c8ff3d]/30 rounded-2xl p-5 opacity-0 transform translate-x-10 transition-colors group">
+                <div className="flex items-center justify-between gap-4 mb-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-[#111] border border-white/[0.08] flex items-center justify-center text-[#c8ff3d] shrink-0">
+                      <i className="ph ph-bug text-xl" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white tracking-tight">Smart flake detection</h3>
+                      <span className="text-[10px] font-mono text-[#c8ff3d] uppercase tracking-wider">Non-Deterministic Quarantine Radar</span>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-mono text-[#c8ff3d] bg-[#c8ff3d]/10 border border-[#c8ff3d]/30 px-2 py-0.5 rounded">
+                    0.01% FLAKE
+                  </span>
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">Smart flake detection</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    Machine learning algorithms isolate and quarantine non-deterministic tests automatically.
-                  </p>
+
+                {/* Animated Diagram: Radar Sweep Beam Matrix */}
+                <div className="relative h-20 bg-[#0d0d0d] rounded-xl border border-white/[0.05] p-3 overflow-hidden font-mono text-[11px] flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-3 relative z-10">
+                    <div className="relative w-12 h-12 rounded-full border border-[#c8ff3d]/30 shrink-0 flex items-center justify-center overflow-hidden">
+                      <div className="radar-sweep-beam" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#c8ff3d]" />
+                    </div>
+                    <div>
+                      <div className="text-white text-xs font-semibold">Deterministic Filter</div>
+                      <div className="text-[10px] text-gray-400">100 / 100 verification iterations</div>
+                    </div>
+                  </div>
+                  <div className="text-right relative z-10">
+                    <span className="text-[10px] font-mono text-emerald-400 block font-semibold">ISOLATED</span>
+                    <span className="text-[9px] text-gray-500">Auto-quarantined [WF-4912]</span>
+                  </div>
+                </div>
+
+                {/* Live Metrics Grid */}
+                <div className="grid grid-cols-2 gap-2 text-[11px] font-mono">
+                  <div className="p-2 bg-white/[0.02] border border-white/[0.04] rounded-lg">
+                    <span className="text-gray-500 text-[10px] block">Confidence Rating</span>
+                    <strong className="text-white">99.99% Deterministic</strong>
+                  </div>
+                  <div className="p-2 bg-white/[0.02] border border-white/[0.04] rounded-lg">
+                    <span className="text-gray-500 text-[10px] block">Quarantine Action</span>
+                    <strong className="text-[#c8ff3d]">Instant Non-Blocking</strong>
+                  </div>
                 </div>
               </div>
             </div>

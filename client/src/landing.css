@@ -2516,3 +2516,114 @@ a:hover .btn-arrow {
   color: #c8ff3d;
 }
 
+/* ── 3D Model Hotspot Pulsing & Discoverability ── */
+.hotspot-beacon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hotspot-beacon::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  background: rgba(200, 255, 61, 0.45);
+  animation: beaconPulse 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  pointer-events: none;
+}
+
+.hotspot-beacon::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(200, 255, 61, 0.35);
+  animation: beaconRing 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes beaconPulse {
+  0% { transform: scale(0.8); opacity: 0.85; }
+  50% { transform: scale(1.4); opacity: 0.2; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes beaconRing {
+  0% { transform: scale(0.7); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* ── Dynamic Visual Metrics & Animated Diagrams ── */
+.laser-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c8ff3d, transparent);
+  box-shadow: 0 0 10px #c8ff3d;
+  animation: laserScan 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes laserScan {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(140px); opacity: 0; }
+}
+
+.radar-sweep-beam {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg at 50% 50%, rgba(200, 255, 61, 0.35) 0deg, transparent 65deg, transparent 360deg);
+  animation: radarSpin 3.5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes radarSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.progress-track-fill {
+  animation: progressFill 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite alternate;
+}
+
+@keyframes progressFill {
+  0% { width: 42%; }
+  100% { width: 96%; }
+}
+
+/* ── Reduced-Motion Media Query (Gracefully Disables Pulsing & Looping Demos) ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .hotspot-beacon::before,
+  .hotspot-beacon::after,
+  .laser-scanline,
+  .radar-sweep-beam,
+  .progress-track-fill,
+  .tamper-glitch,
+  .animate-pulse,
+  .animate-ping,
+  .sandbox-packet-blocked {
+    animation: none !important;
+    transform: none !important;
+    opacity: 0.75 !important;
+  }
+
+  .gif-demo-loop {
+    animation: none !important;
+  }
+}
+

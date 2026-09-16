@@ -184,21 +184,64 @@ export default function SandboxScene({ scrollProgress, resetSignal, performanceM
     executionField.add(orbitA, orbitB, scanBand);
     root.add(executionField);
 
-    const hotspotNodes: Array<{ id: SandboxHotspotId; group: THREE.Group; material: THREE.MeshStandardMaterial }> = [];
+    const hotspotNodes: Array<{
+      id: SandboxHotspotId;
+      group: THREE.Group;
+      material: THREE.MeshStandardMaterial;
+      markerMesh: THREE.Mesh;
+      ringMesh: THREE.Mesh;
+      waveMesh: THREE.Mesh;
+      waveMaterial: THREE.MeshBasicMaterial;
+    }> = [];
+
     const createHotspot = (id: SandboxHotspotId, position: [number, number, number]) => {
       const group = new THREE.Group();
       group.position.set(...position);
-      const markerMaterial = new THREE.MeshStandardMaterial({ color: 0xd7e6ec, emissive: 0x3d7186, emissiveIntensity: 1.25, metalness: 0.25, roughness: 0.28 });
-      const marker = new THREE.Mesh(new THREE.SphereGeometry(0.072, 16, 16), markerMaterial);
-      const ring = new THREE.Mesh(new THREE.TorusGeometry(0.128, 0.008, 8, 26), new THREE.MeshBasicMaterial({ color: 0x9ab7c4, transparent: true, opacity: 0.76 }));
+
+      // Core glowing sphere marker
+      const markerMaterial = new THREE.MeshStandardMaterial({
+        color: 0xc8ff3d,
+        emissive: 0x95cf28,
+        emissiveIntensity: 1.6,
+        metalness: 0.3,
+        roughness: 0.2,
+      });
+      const marker = new THREE.Mesh(new THREE.SphereGeometry(0.082, 16, 16), markerMaterial);
+
+      // Inner steady ring
+      const ring = new THREE.Mesh(
+        new THREE.TorusGeometry(0.145, 0.012, 8, 32),
+        new THREE.MeshBasicMaterial({ color: 0xc8ff3d, transparent: true, opacity: 0.85 })
+      );
       ring.rotation.x = Math.PI / 2;
-      const stem = new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 0.06, 0), new THREE.Vector3(0, 0.29, 0)]), new THREE.LineBasicMaterial({ color: 0x94b1bd, transparent: true, opacity: 0.68 }));
-      [marker, ring, stem].forEach((object) => { object.userData.hotspot = id; group.add(object); });
+
+      // Outer dynamic beacon pulse wave ring (expands & fades to make hotspot discoverable before click)
+      const waveMaterial = new THREE.MeshBasicMaterial({
+        color: 0xc8ff3d,
+        transparent: true,
+        opacity: 0.7,
+        side: THREE.DoubleSide,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false,
+      });
+      const waveMesh = new THREE.Mesh(new THREE.RingGeometry(0.14, 0.175, 32), waveMaterial);
+      waveMesh.rotation.x = -Math.PI / 2;
+
+      const stem = new THREE.Line(
+        new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 0.06, 0), new THREE.Vector3(0, 0.32, 0)]),
+        new THREE.LineBasicMaterial({ color: 0xc8ff3d, transparent: true, opacity: 0.75 })
+      );
+
+      [marker, ring, waveMesh, stem].forEach((object) => {
+        object.userData.hotspot = id;
+        group.add(object);
+      });
       group.userData.hotspot = id;
       group.renderOrder = 6;
       root.add(group);
-      hotspotNodes.push({ id, group, material: markerMaterial });
+      hotspotNodes.push({ id, group, material: markerMaterial, markerMesh: marker, ringMesh: ring, waveMesh, waveMaterial });
     };
+
     if (showHotspots) {
       createHotspot("runtime", [-0.55, -0.46, 0.34]);
       createHotspot("network", [1.1, -0.61, 0.28]);
@@ -252,7 +295,12 @@ export default function SandboxScene({ scrollProgress, resetSignal, performanceM
     resize();
     onSceneProgressRef.current?.(0.72);
 
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const onMotionPreferenceChange = (e: MediaQueryListEvent) => {
+      reduceMotion = e.matches;
+    };
+    motionQuery.addEventListener("change", onMotionPreferenceChange);
     let dragging = false;
     let startX = 0;
     let startY = 0;
@@ -419,8 +467,27 @@ export default function SandboxScene({ scrollProgress, resetSignal, performanceM
       lights.children.forEach((node, index) => { node.scale.setScalar(0.72 + runIntensity * 0.36 + (reduceMotion ? 0 : Math.sin(time * 0.0022 + index) * 0.1)); });
       hotspotNodes.forEach((hotspot, index) => {
         const selected = hotspot.id === activeHotspotRef.current;
-        hotspot.material.emissiveIntensity = selected ? 3.2 : 1.05 + runIntensity * 0.72;
-        hotspot.group.scale.setScalar(selected ? 1.25 : 0.9 + (reduceMotion ? 0 : Math.sin(time * 0.002 + index) * 0.06));
+        const pulseCycle = ((time * 0.0015 + index * 0.33) % 1);
+
+        if (reduceMotion) {
+          hotspot.material.emissiveIntensity = selected ? 3.5 : 1.6;
+          hotspot.markerMesh.scale.setScalar(selected ? 1.3 : 1.0);
+          hotspot.waveMesh.scale.setScalar(1.0);
+          hotspot.waveMaterial.opacity = selected ? 0.75 : 0.25;
+        } else {
+          // Dynamic pulsing discoverability beacon: expanding wave ring before click
+          const waveScale = 1.0 + pulseCycle * 1.7;
+          const waveAlpha = Math.max(0, (1 - pulseCycle) * 0.75);
+          hotspot.waveMesh.scale.setScalar(waveScale);
+          hotspot.waveMaterial.opacity = waveAlpha;
+
+          // Subtle rhythmic breathing scale and emissive pulse
+          const breath = Math.sin(time * 0.0032 + index * 1.2) * 0.12;
+          hotspot.markerMesh.scale.setScalar(selected ? 1.45 + breath * 0.5 : 1.0 + breath);
+          hotspot.material.emissiveIntensity = selected ? 3.6 : 1.5 + Math.sin(time * 0.004 + index) * 0.8;
+          hotspot.ringMesh.rotation.z = time * 0.0009;
+        }
+        hotspot.group.scale.setScalar(selected ? 1.25 : 0.95);
       });
       updateStreams(time, lastPerformanceMode, reduceMotion, runIntensity, stageRef.current);
       updateFloatingParticles(time, lastPerformanceMode, reduceMotion, pointer);
@@ -438,6 +505,7 @@ export default function SandboxScene({ scrollProgress, resetSignal, performanceM
       window.cancelAnimationFrame(animationFrame);
       window.clearTimeout(pauseTimer);
       resizeObserver.disconnect();
+      motionQuery.removeEventListener("change", onMotionPreferenceChange);
       renderer.domElement.removeEventListener("pointerdown", onPointerDown);
       renderer.domElement.removeEventListener("pointermove", onPointerMove);
       renderer.domElement.removeEventListener("pointerup", onPointerUp);
