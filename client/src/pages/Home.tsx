@@ -11,6 +11,7 @@ import VerificationInteractiveSection from "@/components/landing/VerificationInt
 import SecurityUseCasesSection from "@/components/landing/SecurityUseCasesSection";
 import HeroInteractiveCore3D from "@/components/3d/HeroInteractiveCore3D";
 import ParticleSingularityVaultOrb from "@/components/3d/ParticleSingularityVaultOrb";
+import AICapsuleHero3D from "@/components/3d/AICapsuleHero3D";
 import HolographicCardsSection from "@/components/3d/HolographicCardsSection";
 import FeatureDashboard from "@/components/FeatureDashboard";
 import VisualNotificationHUD from "@/components/landing/VisualNotificationHUD";
@@ -706,146 +707,184 @@ export default function Home() {
         </a>
       </div>
 
-      {/* Navigation (Orbyte 3D Vault Inspired) */}
-      <nav className="sticky w-full z-50 top-0 py-3 transition-all duration-500 bg-[#050505]/75 backdrop-blur-xl border-b border-white/[0.05]" id="navbar">
+      {/* Scale AI Style Announcement Bar */}
+      <div className="bg-[#09090b] border-b border-white/[0.06] text-xs font-mono py-2 px-6 text-center text-gray-400 relative z-50 flex items-center justify-center gap-3">
+        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-mono uppercase bg-white/[0.04] border border-white/[0.08] text-white">
+          <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+          WORKFLO AI
+        </span>
+        <span className="text-gray-600">|</span>
+        <span>Hardware-isolated micro-containers with default-deny egress are now live.</span>
+        <a
+          href="#execution-sandbox"
+          className="text-white hover:underline transition-colors inline-flex items-center gap-1"
+        >
+          Inspect Enclave →
+        </a>
+      </div>
+
+      {/* Navigation (Nexor AI Inspired) */}
+      <nav className="sticky w-full z-50 top-0 py-3.5 transition-all duration-500 bg-[#09090b]/80 backdrop-blur-2xl border-b border-white/[0.06]" id="navbar">
         <div
           className="max-w-7xl mx-auto px-6 flex justify-between items-center transition-all duration-500"
           id="nav-inner"
         >
+          {/* Logo with 4-loop clover emblem */}
           <div className="flex items-center gap-3 cursor-pointer pl-2 text-white">
-            <span className="text-2xl font-black font-display tracking-tight text-white uppercase">
-              workflo<span className="text-[#FFAE33]">.</span>
-            </span>
-            <span className="hidden sm:inline-flex bracket-tag !text-[10px] text-white/50">
-              V.01.3.N
+            <div className="w-7 h-7 relative flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-white" strokeWidth="12">
+                <circle cx="34" cy="34" r="22" />
+                <circle cx="66" cy="34" r="22" />
+                <circle cx="66" cy="66" r="22" />
+                <circle cx="34" cy="66" r="22" />
+              </svg>
+            </div>
+            <span className="text-xl font-bold tracking-tight text-white">
+              Workflo AI
             </span>
           </div>
 
-          <div className="hidden md:flex space-x-7 text-xs font-mono tracking-wider text-gray-400 uppercase">
-            <a href="#product" className="hover:text-white transition-colors flex items-center gap-1">
-              Product <span className="text-[#FFAE33]">↗</span>
+          <div className="hidden md:flex space-x-8 text-xs font-medium tracking-wide text-gray-400">
+            <a href="#product" className="hover:text-white transition-colors">
+              Product
             </a>
-            <a href="#capabilities" className="hover:text-white transition-colors flex items-center gap-1">
-              Solutions <span className="text-[#FFAE33]">↗</span>
+            <a href="#capabilities" className="hover:text-white transition-colors">
+              Capabilities
             </a>
-            <a href="#execution-sandbox" className="hover:text-white transition-colors flex items-center gap-1">
-              Developers <span className="text-[#FFAE33]">↗</span>
+            <a href="#execution-sandbox" className="hover:text-white transition-colors">
+              Sandbox
             </a>
-            <a href="#receipt-verification" className="hover:text-white transition-colors flex items-center gap-1">
-              Resources <span className="text-[#FFAE33]">↗</span>
+            <a href="#operations-dashboard" className="hover:text-white transition-colors">
+              Operations
             </a>
-            <a href="#pricing" className="hover:text-white transition-colors flex items-center gap-1">
-              Pricing <span className="text-[#FFAE33]">↗</span>
+            <a href="#receipt-verification" className="hover:text-white transition-colors">
+              Security
+            </a>
+            <a href="#pricing" className="hover:text-white transition-colors">
+              Pricing
             </a>
           </div>
 
           <div className="hidden md:flex items-center space-x-4 pr-2">
             <button
               onClick={() => openModal("demo-modal")}
-              className="arrow-link !text-xs cursor-pointer"
+              className="text-xs font-medium text-gray-300 hover:text-white transition-colors cursor-pointer"
             >
-              Watch Demo →
+              Book a demo
             </button>
             <button
               onClick={() => openModal("waitlist-modal")}
-              className="bracket-btn !py-2 !px-5 !text-xs cursor-pointer"
+              className="px-4 py-2 rounded-full bg-white text-black font-semibold text-xs hover:bg-gray-200 transition-all shadow cursor-pointer flex items-center gap-1.5"
             >
-              Start Trial
+              <span>Launch Console</span>
+              <span className="text-xs">↗</span>
             </button>
           </div>
         </div>
       </nav>
 
       <main className="relative z-10 space-y-12">
-        {/* ── ACT 01: ARRIVAL / HERO (Orbyte 3D Vault Concept) ── */}
+        {/* ── ACT 01: ARRIVAL / HERO (Nexor AI Capsule Concept) ── */}
         <section
-          className="min-h-screen flex flex-col justify-between pt-28 pb-12 px-6 md:px-12 lg:px-24 relative overflow-hidden crosshair-grid"
+          className="min-h-screen flex flex-col justify-between pt-24 pb-12 px-6 md:px-12 lg:px-24 relative overflow-hidden bg-[#09090b]"
           id="hero"
         >
-          {/* Overhead Celestial Spotlight Bloom */}
-          <div className="overhead-vault-bloom" />
+          {/* Towering Background Typography Watermark */}
+          <div className="capsule-bg-watermark absolute top-[28%] left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] tracking-tighter opacity-[0.04] pointer-events-none select-none z-0">
+            Future of AI Agents
+          </div>
 
           {/* Main Hero Grid */}
-          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center my-auto z-10">
-            {/* Left Column: Typography & CTAs */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left space-y-7 max-w-2xl">
-              <div className="bracket-tag text-xs font-mono text-white/70">
-                AI INTELLIGENCE
-              </div>
-
+          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto z-10">
+            {/* Left Column: Headline, Hook, and Connector Callouts */}
+            <div className="lg:col-span-6 flex flex-col items-start text-left space-y-6 max-w-xl">
               <h1
-                className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-black font-display leading-[0.96] tracking-tight uppercase select-none"
+                className="text-5xl sm:text-7xl lg:text-[88px] font-bold tracking-tight text-white leading-[0.92] select-none"
                 id="hero-title"
               >
-                <div className="chrome-heading">WHERE DATA</div>
-                <div className="flex items-center gap-2 sm:gap-4 my-1 flex-wrap">
-                  <span className="four-star text-3xl sm:text-5xl md:text-6xl">✦</span>
-                  <span className="chrome-heading">MEETS BUSINESS</span>
-                </div>
-                <div className="chrome-heading">WITH INTELLIGENT QA</div>
+                Future
               </h1>
 
-              <div className="flex flex-col space-y-4 max-w-lg">
-                <div className="flex items-center gap-3 font-mono text-xs text-white/60">
-                  <span className="text-[#FFAE33] font-bold">( A )</span>
-                  <span className="text-white/30">|</span>
-                  <span className="font-mono text-white/50">[ 001 / 006 ]</span>
-                </div>
-
-                <p className="text-sm sm:text-base text-gray-300 font-light leading-relaxed">
-                  Workflo unifies autonomous test synthesis, air-gapped hardware micro-containers, and cryptographic receipts into one intelligence system so SaaS teams automate decisions and scale smarter.
+              {/* Introductory Hook with curved arrow leader */}
+              <div className="flex items-start gap-3 text-sm sm:text-base text-gray-300 font-light leading-relaxed max-w-md">
+                <span className="text-xl leading-none text-white/50 select-none">↳</span>
+                <p>
+                  Build intelligent AI agents that automate workflows, collaborate in real time, and scale across your business.
                 </p>
               </div>
 
+              {/* Technical Connector Callouts */}
+              <div className="space-y-4 w-full max-w-md pt-2">
+                {/* Callout 1: Multi-Agent Network */}
+                <div
+                  className="connector-callout relative group cursor-pointer"
+                  onClick={() => openModal("demo-modal")}
+                >
+                  <div className="flex items-center justify-between mb-1.5">
+                    <h4 className="text-sm font-semibold text-white tracking-tight flex items-center gap-2">
+                      Multi-Agent Network
+                    </h4>
+                    <span className="w-5 h-5 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-[10px] text-white/80">
+                      ◎
+                    </span>
+                  </div>
+                  <p className="text-xs text-gray-400 font-light leading-relaxed">
+                    Specialized AI agents collaborate together to solve complex business tasks.
+                  </p>
+                </div>
+
+                {/* Callout 2: Enterprise Security */}
+                <div
+                  className="connector-callout relative group cursor-pointer"
+                  onClick={() => openModal("waitlist-modal")}
+                >
+                  <div className="flex items-center justify-between mb-1.5">
+                    <h4 className="text-sm font-semibold text-white tracking-tight flex items-center gap-2">
+                      Enterprise Security
+                    </h4>
+                    <span className="w-5 h-5 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-[10px] text-white/80">
+                      🛡
+                    </span>
+                  </div>
+                  <p className="text-xs text-gray-400 font-light leading-relaxed">
+                    Built with enterprise-grade security, privacy, and scalable infrastructure.
+                  </p>
+                </div>
+              </div>
+
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-6 pt-2 w-full sm:w-auto fade-up-target">
+              <div className="flex flex-wrap items-center gap-4 pt-3 fade-up-target">
                 <button
                   onClick={() => openModal("waitlist-modal")}
-                  className="bracket-btn !px-8 !py-3.5 text-xs font-mono font-bold tracking-widest text-white shadow-[0_0_30px_rgba(255,174,51,0.25)] hover:shadow-[0_0_40px_rgba(255,174,51,0.45)] transition-all cursor-pointer"
+                  className="px-7 py-3.5 rounded-full bg-white text-black font-semibold text-xs tracking-wide hover:bg-gray-200 transition-all shadow-[0_10px_25px_rgba(255,255,255,0.15)] cursor-pointer"
                 >
-                  Building with AI
+                  Start Free Trial →
                 </button>
                 <button
                   onClick={() => openModal("demo-modal")}
-                  className="arrow-link text-xs font-mono cursor-pointer"
+                  className="px-7 py-3.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-white font-medium text-xs tracking-wide border border-white/10 transition-all cursor-pointer"
                 >
-                  Watch Demo <span className="text-[#FFAE33]">→</span>
+                  Book a Demo
                 </button>
-              </div>
-
-              {/* Live Telemetry Feature Strip */}
-              <div className="grid grid-cols-3 gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/[0.08] font-mono text-[11px] w-full max-w-lg mt-2">
-                <div>
-                  <span className="text-gray-500 text-[9px] block uppercase">Executions</span>
-                  <strong className="text-white font-bold">10M+ Runs</strong>
-                </div>
-                <div>
-                  <span className="text-gray-500 text-[9px] block uppercase">Enclave Boot</span>
-                  <strong className="text-[#FFAE33] font-bold">11.8ms KVM</strong>
-                </div>
-                <div>
-                  <span className="text-gray-500 text-[9px] block uppercase">Flake Score</span>
-                  <strong className="text-emerald-400 font-bold">0.01% Clean</strong>
-                </div>
               </div>
             </div>
 
-            {/* Right Column: 3D Interactive Luminous Particle Singularity Orb */}
-            <div className="lg:col-span-5 relative w-full aspect-square sm:aspect-auto sm:h-[500px] lg:h-[560px] flex items-center justify-center">
-              <div className="w-full h-full relative rounded-3xl flex items-center justify-center overflow-hidden border border-white/[0.08] bg-gradient-to-b from-white/[0.03] via-[#060606] to-transparent backdrop-blur-2xl shadow-[0_30px_90px_rgba(0,0,0,0.95)]">
-                <ParticleSingularityVaultOrb />
+            {/* Right Column: 3D Interactive AI Capsule */}
+            <div className="lg:col-span-6 relative w-full aspect-square sm:aspect-auto sm:h-[520px] lg:h-[620px] flex items-center justify-center">
+              <div className="w-full h-full relative flex items-center justify-center">
+                <AICapsuleHero3D onLaunchClick={() => openModal("waitlist-modal")} />
               </div>
             </div>
           </div>
 
           {/* Footer Branding Row (Trusted By Section) */}
           <div className="max-w-7xl mx-auto w-full border-t border-white/[0.08] pt-10 flex flex-col items-center gap-6 z-10 mt-12">
-            <div className="text-xs text-gray-500 tracking-widest uppercase font-mono text-center">
+            <div className="text-xs text-gray-400 tracking-widest uppercase font-mono text-center">
               Trusted by modern product teams
             </div>
             <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 text-gray-400 font-mono text-xs opacity-75">
               <span className="hover:text-white transition-colors flex items-center gap-1.5"><span className="text-white font-bold text-sm">●●</span> Medium</span>
-              <span className="hover:text-white transition-colors flex items-center gap-1.5"><span className="text-[#FFAE33] font-bold text-sm">●</span> Outreach</span>
+              <span className="hover:text-white transition-colors flex items-center gap-1.5 font-bold text-sm">Outreach</span>
               <span className="hover:text-white transition-colors font-sans font-bold text-sm tracking-tight">Adobe</span>
               <span className="hover:text-white transition-colors font-bold text-sm">Framer</span>
               <span className="hover:text-white transition-colors font-bold text-sm lowercase">amazon</span>
