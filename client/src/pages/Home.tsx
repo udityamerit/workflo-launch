@@ -1,19 +1,29 @@
 /**
  * Workflo — Premium AI QA Copilot Landing Page
- * Full-fidelity implementation with:
- * - Three.js glowing particle ocean wave background with additive blending
- * - Three.js 4-tier 3D stacked extruded glass plates (CONNECT, GENERATE, VALIDATE, SHIP)
- * - GSAP ScrollTrigger timeline animations, pinned workflow scrub, text split reveals
- * - Lenis smooth scrolling integration
- * - Realistic Mac OS code editor mockup & product telemetry dashboard
- * - Interactive 3D pricing cards with monthly/annual billing toggle
- * - Waitlist, Demo, and Checkout modals wired to /api/trial-signups
+ * 10-Act Cinematic Narrative Implementation (PRD & Design Specification):
+ * - Act 01: Arrival / Hero (Three.js Glowing Ocean of Data + Line-by-Line Reveals)
+ * - Act 02: The Problem (A Green Checkmark Isn't Proof — Fractured Evidence Layers)
+ * - Act 03: Autonomous QA (Mac OS Code Editor Mockup + Playwright / Jest Synthesis)
+ * - Act 04: Execution Boundary (Air-Gapped Sandbox Enclave + Egress Denial)
+ * - Act 05: Evidence Graph (Merkle Artifact Tree + SHA-256 Digest Compression)
+ * - Act 06 & 07: Receipt & Interactive Verification (Physical Security Plate + Tamper Glitch)
+ * - Act 08 & 09: Security Architecture & Editorial Use Cases
+ * - Pinned 3D Workflow Scrub (4-Tier Extruded Glass Plates: Connect, Generate, Validate, Ship)
+ * - Product Telemetry Dashboard & KPI counters
+ * - Interactive 3D Pricing Cards (Monthly / Annual Toggle + Perspective Tilt)
+ * - Act 10: Final Conversion CTA & Modals
  */
 import React, { useEffect, useRef, useState, type FormEvent } from "react";
 import * as THREE from "three";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
+
+import ProblemFractureSection from "@/components/landing/ProblemFractureSection";
+import SandboxBoundarySection from "@/components/landing/SandboxBoundarySection";
+import EvidenceGraphSection from "@/components/landing/EvidenceGraphSection";
+import VerificationInteractiveSection from "@/components/landing/VerificationInteractiveSection";
+import SecurityUseCasesSection from "@/components/landing/SecurityUseCasesSection";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -684,7 +694,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative bg-[#050505] text-white font-sans overflow-x-hidden selection:bg-[#b7ff00] selection:text-black">
+    <div className="relative bg-[#050505] text-white font-sans overflow-x-hidden selection:bg-[#c8ff3d] selection:text-black">
       {/* Subtle texture overlay */}
       <div className="noise-overlay pointer-events-none" />
 
@@ -703,12 +713,21 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="hidden md:flex space-x-10 text-sm font-medium text-gray-400">
+          <div className="hidden md:flex space-x-8 text-xs font-mono tracking-wide text-gray-400 uppercase">
+            <a href="#problem" className="hover:text-white transition-colors">
+              The Problem
+            </a>
             <a href="#product" className="hover:text-white transition-colors">
-              Product
+              Autonomous QA
+            </a>
+            <a href="#execution-sandbox" className="hover:text-white transition-colors">
+              Sandbox
+            </a>
+            <a href="#receipt-verification" className="hover:text-white transition-colors">
+              Verification
             </a>
             <a href="#workflow-section" className="hover:text-white transition-colors">
-              How it works
+              Pipeline
             </a>
             <a href="#pricing" className="hover:text-white transition-colors">
               Pricing
@@ -718,70 +737,70 @@ export default function Home() {
           <div className="hidden md:flex items-center space-x-4 pr-2">
             <button
               onClick={() => openModal("demo-modal")}
-              className="text-gray-300 hover:text-white text-sm font-medium transition-colors cursor-pointer"
+              className="text-gray-300 hover:text-white text-xs font-mono uppercase transition-colors cursor-pointer"
             >
               Book a demo
             </button>
             <button
               onClick={() => openModal("waitlist-modal")}
-              className="btn-primary px-6 py-2.5 rounded-full text-sm font-semibold flex items-center gap-2 cursor-pointer"
+              className="btn-primary px-5 py-2.5 rounded-lg text-xs font-mono uppercase font-semibold flex items-center gap-2 cursor-pointer"
             >
-              Join waitlist <i className="ph-bold ph-arrow-right" />
+              Join waitlist <span className="btn-arrow">→</span>
             </button>
           </div>
         </div>
       </nav>
 
-      <main className="relative z-10">
-        {/* Hero Section */}
+      <main className="relative z-10 space-y-12">
+        {/* ── ACT 01: ARRIVAL / HERO ── */}
         <section
           className="min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 relative"
           id="hero"
         >
           <div className="max-w-7xl mx-auto w-full text-center z-10 flex flex-col items-center">
-            <div className="split-text-target inline-flex items-center gap-2 text-neon-green text-xs font-semibold tracking-[0.2em] uppercase mb-8 border border-neon-green/20 bg-neon-green/5 px-4 py-1.5 rounded-full">
+            <div className="split-text-target inline-flex items-center gap-2 text-neon-green text-xs font-semibold tracking-[0.2em] uppercase mb-8 border border-neon-green/20 bg-neon-green/5 px-4 py-1.5 rounded-full font-mono">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-green opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-neon-green" />
               </span>
-              Early Access
+              EARLY ACCESS // AUTONOMOUS RUNTIME
             </div>
 
             <h1
-              className="text-5xl md:text-7xl lg:text-[8rem] font-bold leading-[0.9] tracking-tighter mb-8 w-full max-w-5xl"
+              className="text-5xl md:text-7xl lg:text-[7.5rem] font-bold leading-[0.9] tracking-tighter mb-8 w-full max-w-5xl"
               id="hero-title"
             >
               <div className="text-white">Ship software.</div>
-              <div className="text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-600">
+              <div className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-500">
                 Not regressions.
               </div>
-              <div className="text-transparent bg-clip-text bg-gradient-to-r from-gray-600 to-gray-800">
+              <div className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700">
                 Not risk.
               </div>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed split-text-target font-light">
-              workflo is the AI-powered QA copilot that tests, validates, and ships
-              production-ready code—so you can move fast with absolute confidence.
+            <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed split-text-target font-light">
+              Workflo is the privacy-first autonomous QA agent that tests software in
+              isolated sandboxes and produces verifiable execution receipts.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-24 fade-up-target opacity-0">
               <button
                 onClick={() => openModal("waitlist-modal")}
-                className="btn-primary px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-3 text-lg cursor-pointer"
+                className="btn-primary px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-3 text-base cursor-pointer"
               >
-                Join early access <i className="ph-bold ph-arrow-right" />
+                Join early access <span className="btn-arrow">→</span>
               </button>
               <button
                 onClick={() => openModal("demo-modal")}
-                className="btn-secondary px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-3 text-lg cursor-pointer"
+                className="btn-secondary px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-3 text-base cursor-pointer"
               >
-                Book a demo
+                Book a demo <span className="btn-arrow">→</span>
               </button>
             </div>
 
             <div className="flex flex-col items-center gap-5 text-sm text-gray-500 fade-up-target opacity-0">
-              <div className="tracking-[0.1em] uppercase text-xs font-semibold">
+              <div className="tracking-[0.1em] uppercase text-xs font-semibold font-mono">
                 Trusted by elite engineering teams
               </div>
               <div className="flex flex-wrap justify-center gap-8 md:gap-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
@@ -801,24 +820,27 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-[10px] font-semibold text-gray-600 uppercase tracking-widest fade-up-target opacity-0">
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-[10px] font-semibold text-gray-600 uppercase tracking-widest fade-up-target opacity-0 font-mono">
             <div className="w-[1px] h-16 bg-gradient-to-b from-gray-800 to-transparent overflow-hidden relative">
               <div className="w-full h-1/2 bg-neon-green absolute top-0 left-0 animate-[scrolldown_2s_ease-in-out_infinite]" />
             </div>
-            Scroll to explore
+            Scroll to explore execution pipeline
           </div>
         </section>
 
-        {/* Product Section */}
+        {/* ── ACT 02: THE PROBLEM (Fractured Evidence Layers) ── */}
+        <ProblemFractureSection />
+
+        {/* ── ACT 03: AUTONOMOUS QA (Code Editor & Capabilities) ── */}
         <section className="max-w-7xl mx-auto px-6 py-32 relative z-10" id="product">
           <div className="mb-20 max-w-3xl">
-            <div className="split-text-target inline-flex items-center gap-2 text-neon-green text-xs font-semibold tracking-[0.2em] uppercase mb-6">
-              Built for engineers
+            <div className="split-text-target inline-flex items-center gap-2 text-neon-green text-xs font-semibold tracking-[0.2em] uppercase mb-4 font-mono">
+              ACT 03 // AUTONOMOUS QA
             </div>
             <h2 className="text-4xl md:text-6xl font-bold tracking-tighter" id="feature-title">
               QA that thinks <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-green to-white italic font-light">
-                like you ship.
+                beyond the happy path.
               </span>
             </h2>
           </div>
@@ -895,10 +917,9 @@ export default function Home() {
                   <i className="ph ph-robot text-2xl text-neon-green" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2 text-white">AI-generated tests</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">
-                    Auto-generate comprehensive test suites directly from your codebase and UI
-                    changes.
+                  <h3 className="text-xl font-semibold mb-2 text-white">AI-generated test suites</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    Auto-generate comprehensive candidate suites directly from code diffs and visual state trees.
                   </p>
                 </div>
               </div>
@@ -909,9 +930,8 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2 text-white">Visual regression</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">
-                    Pixel-perfect visual diffing across thousands of browser combinations
-                    instantly.
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    Pixel-perfect visual diffing across thousands of viewport combinations instantly.
                   </p>
                 </div>
               </div>
@@ -922,9 +942,8 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2 text-white">Smart flake detection</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">
-                    Machine learning algorithms isolate and quarantine non-deterministic tests
-                    automatically.
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    Machine learning algorithms isolate and quarantine non-deterministic tests automatically.
                   </p>
                 </div>
               </div>
@@ -932,13 +951,25 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Workflow Section (Pinned 3D Scrubbing) */}
+        {/* ── ACT 04: EXECUTION / SANDBOX ── */}
+        <SandboxBoundarySection />
+
+        {/* ── ACT 05: EVIDENCE GRAPH ── */}
+        <EvidenceGraphSection />
+
+        {/* ── ACT 06 & 07: RECEIPT & INTERACTIVE VERIFICATION ── */}
+        <VerificationInteractiveSection />
+
+        {/* ── ACT 08 & 09: SECURITY & USE CASES ── */}
+        <SecurityUseCasesSection />
+
+        {/* ── HOW IT WORKS: PINNED 3D EXTRUDED GLASS PLATES ── */}
         <section className="relative py-40 bg-[#020202]" id="workflow-section">
           <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div className="lg:h-screen flex flex-col justify-center z-10" id="workflow-text-col">
               <div className="mb-16">
-                <div className="text-neon-green text-xs font-semibold tracking-[0.2em] uppercase mb-4">
-                  How it works
+                <div className="text-neon-green text-xs font-semibold tracking-[0.2em] uppercase mb-4 font-mono">
+                  EXECUTION PIPELINE
                 </div>
                 <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white leading-tight">
                   From commit
@@ -949,45 +980,37 @@ export default function Home() {
 
               <div className="space-y-12 relative border-l border-gray-800 ml-2 pl-10" id="workflow-steps">
                 <div className="workflow-step relative opacity-30 transition-opacity duration-300">
-                  <div className="absolute -left-[45px] top-1 text-xs font-mono text-gray-500">
-                    01
-                  </div>
+                  <div className="absolute -left-[45px] top-1 text-xs font-mono text-gray-500">01</div>
                   <div className="absolute -left-[45px] top-6 w-2 h-2 rounded-full bg-gray-700 step-dot transition-colors duration-300" />
                   <h4 className="text-2xl font-semibold mb-2 text-white">Connect</h4>
-                  <p className="text-gray-500 leading-relaxed text-sm">
+                  <p className="text-gray-400 leading-relaxed text-sm">
                     Link your repo and environments securely.
                   </p>
                 </div>
 
                 <div className="workflow-step relative opacity-30 transition-opacity duration-300">
-                  <div className="absolute -left-[45px] top-1 text-xs font-mono text-gray-500">
-                    02
-                  </div>
+                  <div className="absolute -left-[45px] top-1 text-xs font-mono text-gray-500">02</div>
                   <div className="absolute -left-[45px] top-6 w-2 h-2 rounded-full bg-gray-700 step-dot transition-colors duration-300" />
                   <h4 className="text-2xl font-semibold mb-2 text-white">Generate</h4>
-                  <p className="text-gray-500 leading-relaxed text-sm">
+                  <p className="text-gray-400 leading-relaxed text-sm">
                     AI analyzes your app and generates comprehensive tests.
                   </p>
                 </div>
 
                 <div className="workflow-step relative opacity-30 transition-opacity duration-300">
-                  <div className="absolute -left-[45px] top-1 text-xs font-mono text-gray-500">
-                    03
-                  </div>
+                  <div className="absolute -left-[45px] top-1 text-xs font-mono text-gray-500">03</div>
                   <div className="absolute -left-[45px] top-6 w-2 h-2 rounded-full bg-gray-700 step-dot transition-colors duration-300" />
                   <h4 className="text-2xl font-semibold mb-2 text-white">Validate</h4>
-                  <p className="text-gray-500 leading-relaxed text-sm">
+                  <p className="text-gray-400 leading-relaxed text-sm">
                     Run parallel tests across real browsers and devices.
                   </p>
                 </div>
 
                 <div className="workflow-step relative opacity-30 transition-opacity duration-300">
-                  <div className="absolute -left-[45px] top-1 text-xs font-mono text-gray-500">
-                    04
-                  </div>
+                  <div className="absolute -left-[45px] top-1 text-xs font-mono text-gray-500">04</div>
                   <div className="absolute -left-[45px] top-6 w-2 h-2 rounded-full bg-gray-700 step-dot transition-colors duration-300" />
                   <h4 className="text-2xl font-semibold mb-2 text-white">Ship</h4>
-                  <p className="text-gray-500 leading-relaxed text-sm">
+                  <p className="text-gray-400 leading-relaxed text-sm">
                     Confidently merge validated, production-ready code.
                   </p>
                 </div>
@@ -1001,7 +1024,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Stats + Product Dashboard Section */}
+        {/* ── STATS + PRODUCT DASHBOARD SECTION ── */}
         <section className="max-w-7xl mx-auto px-6 py-32 z-10 relative">
           <div className="glass-panel p-[1px] rounded-[2rem] overflow-hidden shadow-2xl scale-95 opacity-0 dashboard-reveal">
             <div className="grid grid-cols-1 lg:grid-cols-12 bg-[#050505] rounded-[2rem] overflow-hidden">
@@ -1010,9 +1033,7 @@ export default function Home() {
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-neon-green/5 to-transparent pointer-events-none" />
 
                 <div>
-                  <div className="text-5xl font-bold text-neon-green mb-2 tracking-tighter">
-                    87%
-                  </div>
+                  <div className="text-5xl font-bold text-neon-green mb-2 tracking-tighter">87%</div>
                   <div className="text-gray-400 text-sm">fewer bugs in production</div>
                 </div>
                 <div>
@@ -1020,9 +1041,7 @@ export default function Home() {
                   <div className="text-gray-400 text-sm">faster release cycles</div>
                 </div>
                 <div>
-                  <div className="text-5xl font-bold text-gray-300 mb-2 tracking-tighter">
-                    10k+
-                  </div>
+                  <div className="text-5xl font-bold text-gray-300 mb-2 tracking-tighter">10k+</div>
                   <div className="text-gray-400 text-sm">engineers building with workflo</div>
                 </div>
               </div>
@@ -1035,13 +1054,13 @@ export default function Home() {
                       workflo<span className="text-neon-green">.</span>
                     </span>
                     <span className="text-gray-600 text-sm">/</span>
-                    <span className="text-gray-300 text-sm">Test Runs</span>
+                    <span className="text-gray-300 text-sm font-mono">Telemetry / Test Runs</span>
                   </div>
                   <div className="flex gap-2">
-                    <div className="text-xs bg-[#111] border border-gray-800 text-gray-400 px-3 py-1.5 rounded flex items-center gap-1">
+                    <div className="text-xs bg-[#111] border border-gray-800 text-gray-400 px-3 py-1.5 rounded flex items-center gap-1 font-mono">
                       <i className="ph ph-funnel" /> All Env <i className="ph-bold ph-caret-down" />
                     </div>
-                    <div className="text-xs bg-[#111] border border-gray-800 text-gray-400 px-3 py-1.5 rounded flex items-center gap-1">
+                    <div className="text-xs bg-[#111] border border-gray-800 text-gray-400 px-3 py-1.5 rounded flex items-center gap-1 font-mono">
                       <i className="ph ph-clock" /> 7 Days <i className="ph-bold ph-caret-down" />
                     </div>
                   </div>
@@ -1049,25 +1068,25 @@ export default function Home() {
 
                 {/* Metric Cards */}
                 <div className="grid grid-cols-4 gap-4 mb-8">
-                  <div className="bg-[#0f0f0f] border border-gray-800 p-4 rounded-xl shadow-inner">
+                  <div className="bg-[#0f0f0f] border border-gray-800 p-4 rounded-xl shadow-inner font-mono">
                     <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">
                       Total Runs
                     </div>
                     <div className="text-xl font-bold text-white">1,248</div>
                   </div>
-                  <div className="bg-[#0f0f0f] border border-gray-800 p-4 rounded-xl shadow-inner border-b-2 border-b-green-500">
+                  <div className="bg-[#0f0f0f] border border-gray-800 p-4 rounded-xl shadow-inner border-b-2 border-b-green-500 font-mono">
                     <div className="text-[10px] text-green-500 uppercase tracking-wider mb-1">
                       Passed
                     </div>
                     <div className="text-xl font-bold text-green-400">1,107</div>
                   </div>
-                  <div className="bg-[#0f0f0f] border border-gray-800 p-4 rounded-xl shadow-inner border-b-2 border-b-red-500">
+                  <div className="bg-[#0f0f0f] border border-gray-800 p-4 rounded-xl shadow-inner border-b-2 border-b-red-500 font-mono">
                     <div className="text-[10px] text-red-500 uppercase tracking-wider mb-1">
                       Failed
                     </div>
                     <div className="text-xl font-bold text-red-400">141</div>
                   </div>
-                  <div className="bg-[#0f0f0f] border border-gray-800 p-4 rounded-xl shadow-inner">
+                  <div className="bg-[#0f0f0f] border border-gray-800 p-4 rounded-xl shadow-inner font-mono">
                     <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">
                       Flaky
                     </div>
@@ -1077,7 +1096,7 @@ export default function Home() {
 
                 {/* Data List */}
                 <div className="space-y-2">
-                  <div className="text-[10px] text-gray-500 uppercase tracking-wider flex px-4 pb-2">
+                  <div className="text-[10px] text-gray-500 uppercase tracking-wider flex px-4 pb-2 font-mono">
                     <div className="w-8">Status</div>
                     <div className="flex-1">Run / Commit</div>
                   </div>
@@ -1086,8 +1105,8 @@ export default function Home() {
                       <div className="w-2 h-2 rounded-full bg-green-500 ring-4 ring-green-900/30" />
                     </div>
                     <div className="flex-1">
-                      <div className="text-sm font-semibold text-gray-200">a1b2c3d</div>
-                      <div className="text-xs text-gray-500">
+                      <div className="text-sm font-semibold text-gray-200 font-mono">a1b2c3d</div>
+                      <div className="text-xs text-gray-500 font-mono">
                         feat: improve checkout flow • 2m ago
                       </div>
                     </div>
@@ -1102,8 +1121,8 @@ export default function Home() {
                       <div className="w-2 h-2 rounded-full bg-red-500 ring-4 ring-red-900/30" />
                     </div>
                     <div className="flex-1">
-                      <div className="text-sm font-semibold text-gray-200">h7i8j9k</div>
-                      <div className="text-xs text-red-400">
+                      <div className="text-sm font-semibold text-gray-200 font-mono">h7i8j9k</div>
+                      <div className="text-xs text-red-400 font-mono">
                         refactor: product list • 1h ago
                       </div>
                     </div>
@@ -1122,7 +1141,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pricing Section */}
+        {/* ── TRANSPARENT PRICING SECTION ── */}
         <section id="pricing" className="py-32 relative z-10 border-t border-gray-900">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
@@ -1158,7 +1177,7 @@ export default function Home() {
                   }`}
                 >
                   Annually{" "}
-                  <span className="text-neon-green text-[10px] ml-1 bg-neon-green/10 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                  <span className="text-neon-green text-[10px] ml-1 bg-neon-green/10 px-2 py-0.5 rounded-full uppercase tracking-wider font-mono">
                     Save 20%
                   </span>
                 </span>
@@ -1177,13 +1196,13 @@ export default function Home() {
                     <span className="text-5xl font-bold tracking-tight text-white">
                       ${isAnnual ? "39" : "49"}
                     </span>
-                    <span className="text-gray-500 text-sm">/mo</span>
+                    <span className="text-gray-500 text-sm font-mono">/mo</span>
                   </div>
                   <button
                     onClick={() => openModal("checkout-modal")}
                     className="btn-secondary w-full py-3 rounded-lg font-semibold mb-8 text-sm cursor-pointer"
                   >
-                    Get Started
+                    Get Started <span className="btn-arrow">→</span>
                   </button>
 
                   <div className="space-y-4 flex-grow text-sm text-gray-300">
@@ -1209,7 +1228,7 @@ export default function Home() {
               {/* Pro (Glowing) */}
               <div className="pricing-card-wrapper fade-up-target opacity-0">
                 <div className="pricing-card-inner h-full bg-[#0f1105] glow-border rounded-2xl p-8 flex flex-col relative z-10 transform md:scale-105 shadow-2xl">
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-neon-green text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-neon-green text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider font-mono">
                     Recommended
                   </div>
                   <h3 className="text-xl font-bold mb-2 text-white">Pro</h3>
@@ -1220,13 +1239,13 @@ export default function Home() {
                     <span className="text-5xl font-bold tracking-tight text-white">
                       ${isAnnual ? "119" : "149"}
                     </span>
-                    <span className="text-gray-500 text-sm">/mo</span>
+                    <span className="text-gray-500 text-sm font-mono">/mo</span>
                   </div>
                   <button
                     onClick={() => openModal("checkout-modal")}
                     className="btn-primary w-full py-3 rounded-lg font-semibold mb-8 text-sm shadow-[0_0_20px_rgba(183,255,0,0.2)] cursor-pointer"
                   >
-                    Start Free Trial
+                    Start Free Trial <span className="btn-arrow">→</span>
                   </button>
 
                   <div className="space-y-4 flex-grow text-sm text-gray-200">
@@ -1267,7 +1286,7 @@ export default function Home() {
                     onClick={() => openModal("demo-modal")}
                     className="btn-secondary w-full py-3 rounded-lg font-semibold mb-8 text-sm cursor-pointer"
                   >
-                    Contact Sales
+                    Contact Sales <span className="btn-arrow">→</span>
                   </button>
 
                   <div className="space-y-4 flex-grow text-sm text-gray-300">
@@ -1293,23 +1312,29 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* ── ACT 10: FINAL CONVERSION / CTA ── */}
         <section className="max-w-7xl mx-auto px-6 py-40 z-10 relative">
           <div className="relative overflow-hidden rounded-[2rem] border border-gray-800 text-center bg-gradient-to-b from-[#111] to-[#050505] shadow-2xl p-16 md:p-24 cta-reveal scale-95 opacity-0">
             <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
+              <div className="inline-flex items-center gap-2 text-neon-green text-xs font-semibold tracking-[0.2em] uppercase mb-6 font-mono border border-neon-green/20 bg-neon-green/5 px-4 py-1.5 rounded-full">
+                ACT 10 // SHIP WITH EVIDENCE
+              </div>
               <h2
                 className="text-5xl md:text-7xl font-bold mb-6 tracking-tighter text-white"
                 id="cta-title"
               >
                 Ready to ship
                 <br />
-                with confidence?
+                with evidence?
               </h2>
+              <p className="text-gray-400 text-lg max-w-xl font-light leading-relaxed mb-4">
+                Join early access and experience verifiable QA for modern software.
+              </p>
               <button
                 onClick={() => openModal("waitlist-modal")}
-                className="btn-primary px-10 py-5 rounded-full font-bold flex items-center justify-center gap-3 text-lg mt-8 shadow-[0_0_40px_rgba(183,255,0,0.2)] cursor-pointer"
+                className="btn-primary px-10 py-5 rounded-xl font-bold flex items-center justify-center gap-3 text-lg mt-6 shadow-[0_0_40px_rgba(183,255,0,0.2)] cursor-pointer"
               >
-                Get early access <i className="ph-bold ph-arrow-right" />
+                Get early access <span className="btn-arrow">→</span>
               </button>
             </div>
           </div>
@@ -1318,18 +1343,28 @@ export default function Home() {
         {/* Footer */}
         <footer className="border-t border-gray-900 bg-[#020202] pt-20 pb-10 z-10 relative">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 font-mono">
+            <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-mono">
               <div className="mb-4 md:mb-0">
                 <span className="text-white text-lg font-sans font-bold tracking-tighter mr-4">
                   workflo<span className="text-neon-green">.</span>
                 </span>
-                &copy; 2026 workflo inc.
+                &copy; 2026 workflo inc. Autonomous QA with Verifiable Execution.
               </div>
               <div className="flex space-x-6 text-lg">
-                <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-white transition-colors"
+                >
                   <i className="ph-fill ph-github-logo" />
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-white transition-colors"
+                >
                   <i className="ph-fill ph-twitter-logo" />
                 </a>
               </div>

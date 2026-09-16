@@ -2326,3 +2326,105 @@
   100% { transform: translateY(200%); }
 }
 
+/* ── Workflo 10-Act Narrative Design Tokens & System Styles ──────── */
+:root {
+  --wf-bg: #050505;
+  --wf-surface: #090909;
+  --wf-surface-2: #101010;
+  --wf-border: #1c1c1c;
+  --wf-text: #f5f5f2;
+  --wf-text-secondary: #a1a19a;
+  --wf-text-muted: #686862;
+  --wf-accent: #c8ff3d;
+  --wf-radius-sm: 6px;
+  --wf-radius-md: 8px;
+  --wf-radius-lg: 14px;
+  --wf-container: 1320px;
+}
+
+/* Engineered Button - 4px arrow travel on hover */
+.btn-arrow {
+  display: inline-block;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+button:hover .btn-arrow,
+a:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Act 02: Evidence Fracture Layer Stack */
+.evidence-fracture-stage {
+  perspective: 1400px;
+}
+
+.evidence-layer-card {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.evidence-layer-card:hover {
+  border-color: rgba(200, 255, 61, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(200, 255, 61, 0.15);
+}
+
+/* Act 04: Sandbox Container Boundary */
+.sandbox-boundary-box {
+  background: radial-gradient(circle at 50% 50%, rgba(16, 26, 8, 0.35) 0%, rgba(5, 5, 5, 0.95) 100%);
+  border: 1px solid rgba(200, 255, 61, 0.25);
+  box-shadow: 0 0 50px -10px rgba(200, 255, 61, 0.1), inset 0 0 40px -15px rgba(200, 255, 61, 0.08);
+}
+
+.sandbox-packet-blocked {
+  animation: packetDenied 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes packetDenied {
+  0% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.1); filter: brightness(2) drop-shadow(0 0 12px #ff4545); }
+  100% { transform: scale(1); filter: brightness(1); }
+}
+
+/* Act 05: Evidence Graph Connectors */
+.evidence-tree-node {
+  transition: all 0.3s ease;
+}
+.evidence-tree-node:hover {
+  border-color: rgba(200, 255, 61, 0.6);
+  background: rgba(200, 255, 61, 0.05);
+}
+
+/* Act 06: Physical Cryptographic Receipt Plate */
+.receipt-plate {
+  background: linear-gradient(175deg, rgba(22, 22, 22, 0.85) 0%, rgba(8, 8, 8, 0.95) 100%);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(200, 255, 61, 0.15) inset;
+  position: relative;
+}
+
+.receipt-plate::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c8ff3d, transparent);
+  opacity: 0.8;
+}
+
+/* Act 07: Verification Tamper Glitch Animation */
+.tamper-glitch {
+  animation: glitchShake 0.4s ease infinite;
+}
+
+@keyframes glitchShake {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, -2px); }
+  80% { transform: translate(2px, 2px); }
+  100% { transform: translate(0, 0); }
+}
+
