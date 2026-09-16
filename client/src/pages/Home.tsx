@@ -712,21 +712,28 @@ export default function Home() {
           className="max-w-7xl mx-auto px-6 flex justify-between items-center transition-all duration-500 rounded-full"
           id="nav-inner"
         >
-          <div className="flex items-center gap-2 cursor-pointer pl-2 text-white">
+          <div className="flex items-center gap-3 cursor-pointer pl-2 text-white">
             <span className="text-2xl font-bold tracking-tighter">
               workflo<span className="text-neon-green">.</span>
             </span>
+            <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase bg-white/[0.04] border border-white/[0.08] text-gray-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-neon-green animate-pulse" />
+              v2.4 ENCLAVE
+            </span>
           </div>
 
-          <div className="hidden md:flex space-x-7 text-xs font-mono tracking-wide text-gray-400 uppercase">
-            <a href="#problem" className="hover:text-white transition-colors">
-              The Problem
-            </a>
+          <div className="hidden md:flex space-x-6 text-xs font-mono tracking-wide text-gray-400 uppercase">
             <a href="#product" className="hover:text-white transition-colors">
               Autonomous QA
             </a>
+            <a href="#capabilities" className="hover:text-white transition-colors">
+              Capabilities
+            </a>
             <a href="#execution-sandbox" className="hover:text-white transition-colors">
               Sandbox
+            </a>
+            <a href="#operations-dashboard" className="hover:text-white transition-colors">
+              Operations HUD
             </a>
             <a href="#receipt-verification" className="hover:text-white transition-colors">
               Verification
@@ -1203,123 +1210,6 @@ export default function Home() {
             {/* WebGL Canvas Container for Stacked Plates */}
             <div className="h-[60vh] lg:h-screen w-full relative" id="workflow-3d-wrapper">
               <div id="workflow-canvas-container" ref={workflowCanvasRef} />
-            </div>
-          </div>
-        </section>
-
-        {/* ── STATS + PRODUCT DASHBOARD SECTION ── */}
-        <section className="max-w-7xl mx-auto px-6 py-32 z-10 relative">
-          <div className="glass-panel p-[1px] rounded-[2rem] overflow-hidden shadow-2xl scale-95 opacity-0 dashboard-reveal">
-            <div className="grid grid-cols-1 lg:grid-cols-12 bg-[#050505] rounded-[2rem] overflow-hidden">
-              {/* Stats Side */}
-              <div className="lg:col-span-4 p-10 border-b lg:border-b-0 lg:border-r border-gray-800/80 flex flex-col justify-center space-y-12 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-neon-green/5 to-transparent pointer-events-none" />
-
-                <div>
-                  <div className="text-5xl font-bold text-neon-green mb-2 tracking-tighter">87%</div>
-                  <div className="text-gray-400 text-sm">fewer bugs in production</div>
-                </div>
-                <div>
-                  <div className="text-5xl font-bold text-white mb-2 tracking-tighter">3.2x</div>
-                  <div className="text-gray-400 text-sm">faster release cycles</div>
-                </div>
-                <div>
-                  <div className="text-5xl font-bold text-gray-300 mb-2 tracking-tighter">10k+</div>
-                  <div className="text-gray-400 text-sm">engineers building with workflo</div>
-                </div>
-              </div>
-
-              {/* Dashboard UI */}
-              <div className="lg:col-span-8 p-8 md:p-10 bg-[#080808]">
-                <div className="flex justify-between items-center mb-8 border-b border-gray-800 pb-4">
-                  <div className="flex items-center gap-4">
-                    <span className="font-bold text-lg">
-                      workflo<span className="text-neon-green">.</span>
-                    </span>
-                    <span className="text-gray-600 text-sm">/</span>
-                    <span className="text-gray-300 text-sm font-mono">Telemetry / Test Runs</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <div className="text-xs bg-[#111] border border-gray-800 text-gray-400 px-3 py-1.5 rounded flex items-center gap-1 font-mono">
-                      <i className="ph ph-funnel" /> All Env <i className="ph-bold ph-caret-down" />
-                    </div>
-                    <div className="text-xs bg-[#111] border border-gray-800 text-gray-400 px-3 py-1.5 rounded flex items-center gap-1 font-mono">
-                      <i className="ph ph-clock" /> 7 Days <i className="ph-bold ph-caret-down" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Metric Cards */}
-                <div className="grid grid-cols-4 gap-4 mb-8">
-                  <div className="bg-[#0f0f0f] border border-gray-800 p-4 rounded-xl shadow-inner font-mono">
-                    <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">
-                      Total Runs
-                    </div>
-                    <div className="text-xl font-bold text-white">1,248</div>
-                  </div>
-                  <div className="bg-[#0f0f0f] border border-gray-800 p-4 rounded-xl shadow-inner border-b-2 border-b-green-500 font-mono">
-                    <div className="text-[10px] text-green-500 uppercase tracking-wider mb-1">
-                      Passed
-                    </div>
-                    <div className="text-xl font-bold text-green-400">1,107</div>
-                  </div>
-                  <div className="bg-[#0f0f0f] border border-gray-800 p-4 rounded-xl shadow-inner border-b-2 border-b-red-500 font-mono">
-                    <div className="text-[10px] text-red-500 uppercase tracking-wider mb-1">
-                      Failed
-                    </div>
-                    <div className="text-xl font-bold text-red-400">141</div>
-                  </div>
-                  <div className="bg-[#0f0f0f] border border-gray-800 p-4 rounded-xl shadow-inner font-mono">
-                    <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">
-                      Flaky
-                    </div>
-                    <div className="text-xl font-bold text-white">23</div>
-                  </div>
-                </div>
-
-                {/* Data List */}
-                <div className="space-y-2">
-                  <div className="text-[10px] text-gray-500 uppercase tracking-wider flex px-4 pb-2 font-mono">
-                    <div className="w-8">Status</div>
-                    <div className="flex-1">Run / Commit</div>
-                  </div>
-                  <div className="flex items-center p-3 bg-[#111] rounded-lg border border-gray-800/50 hover:bg-[#151515] transition-colors group">
-                    <div className="w-8 flex justify-center">
-                      <div className="w-2 h-2 rounded-full bg-green-500 ring-4 ring-green-900/30" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="text-sm font-semibold text-gray-200 font-mono">a1b2c3d</div>
-                      <div className="text-xs text-gray-500 font-mono">
-                        feat: improve checkout flow • 2m ago
-                      </div>
-                    </div>
-                    <div className="flex gap-1 opacity-50 group-hover:opacity-100">
-                      <div className="w-6 h-6 rounded bg-gray-800 flex items-center justify-center text-xs">
-                        <i className="ph ph-chrome-logo text-gray-300" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex items-center p-3 bg-red-950/10 rounded-lg border border-red-900/20 hover:bg-red-950/20 transition-colors group">
-                    <div className="w-8 flex justify-center">
-                      <div className="w-2 h-2 rounded-full bg-red-500 ring-4 ring-red-900/30" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="text-sm font-semibold text-gray-200 font-mono">h7i8j9k</div>
-                      <div className="text-xs text-red-400 font-mono">
-                        refactor: product list • 1h ago
-                      </div>
-                    </div>
-                    <div className="flex gap-1 opacity-50 group-hover:opacity-100">
-                      <div className="w-6 h-6 rounded bg-gray-800 flex items-center justify-center text-xs">
-                        <i className="ph ph-chrome-logo text-gray-300" />
-                      </div>
-                      <div className="w-6 h-6 rounded bg-gray-800 flex items-center justify-center text-xs">
-                        <i className="ph ph-safari-logo text-gray-300" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>

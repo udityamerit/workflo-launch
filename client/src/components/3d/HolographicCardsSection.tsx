@@ -56,7 +56,7 @@ const CARDS: CardData[] = [
       { label: "HEURISTIC ACCURACY", val: "99.8%" },
       { label: "PARALLEL THREADS", val: "32 Nodes" },
     ],
-    accentColor: "#A3E635",
+    accentColor: "#C8FF3D",
   },
   {
     id: "sandbox",
@@ -323,15 +323,15 @@ function HolographicCard({ card }: { card: CardData }) {
 /* ── Holographic Cards Section Wrapper ───────────────────────── */
 export default function HolographicCardsSection() {
   return (
-    <section className="relative w-full bg-transparent text-white py-28 px-6 md:px-12 lg:px-24 border-t border-white/5 overflow-hidden z-10">
+    <section id="capabilities" className="relative w-full bg-transparent text-white py-28 px-6 md:px-12 lg:px-24 border-t border-white/5 overflow-hidden z-10">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-[#A3E635]/30 bg-[#A3E635]/10 backdrop-blur-md mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#A3E635] animate-pulse" />
-              <span className="text-xs font-mono uppercase tracking-widest text-[#A3E635]">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-[#C8FF3D]/30 bg-[#C8FF3D]/10 backdrop-blur-md mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C8FF3D] animate-pulse" />
+              <span className="text-xs font-mono uppercase tracking-widest text-[#C8FF3D]">
                 Dimension 04 // Holographic Artifacts
               </span>
             </div>
