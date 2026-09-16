@@ -9,6 +9,10 @@ import SandboxBoundarySection from "@/components/landing/SandboxBoundarySection"
 import EvidenceGraphSection from "@/components/landing/EvidenceGraphSection";
 import VerificationInteractiveSection from "@/components/landing/VerificationInteractiveSection";
 import SecurityUseCasesSection from "@/components/landing/SecurityUseCasesSection";
+import HeroInteractiveCore3D from "@/components/3d/HeroInteractiveCore3D";
+import HolographicCardsSection from "@/components/3d/HolographicCardsSection";
+import FeatureDashboard from "@/components/FeatureDashboard";
+import VisualNotificationHUD from "@/components/landing/VisualNotificationHUD";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -759,76 +763,106 @@ export default function Home() {
       </nav>
 
       <main className="relative z-10 space-y-12">
-        {/* ── ACT 01: ARRIVAL / HERO (Scale AI Style) ── */}
+        {/* ── ACT 01: ARRIVAL / HERO (Scale AI Style with Interactive 3D Core) ── */}
         <section
-          className="min-h-screen flex flex-col justify-center pt-24 pb-20 px-6 relative"
+          className="min-h-screen flex flex-col justify-between pt-28 pb-12 px-6 md:px-12 lg:px-24 relative overflow-hidden"
           id="hero"
         >
-          <div className="max-w-7xl mx-auto w-full text-center z-10 flex flex-col items-center">
-            <div className="scale-badge mb-8 font-mono">
-              <span className="w-1.5 h-1.5 rounded-full bg-neon-green animate-ping" />
-              RELIABLE QA SYSTEMS FOR CRITICAL SOFTWARE DECISIONS
+          {/* Background Ambient Glows */}
+          <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#c8ff3d]/10 rounded-full blur-[160px] pointer-events-none" />
+          <div className="absolute bottom-[20%] left-[-15%] w-[500px] h-[500px] bg-[#38bdf8]/5 rounded-full blur-[140px] pointer-events-none" />
+
+          {/* Main Hero Grid */}
+          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center my-auto z-10">
+            {/* Left Column: Typography & CTAs */}
+            <div className="lg:col-span-7 flex flex-col items-start text-left space-y-6 max-w-2xl">
+              <div className="scale-badge font-mono">
+                <span className="w-2 h-2 rounded-full bg-neon-green hotspot-beacon" />
+                <span>DIMENSION 01 // AUTONOMOUS QA MATRIX</span>
+              </div>
+
+              <h1
+                className="text-4xl sm:text-6xl md:text-7xl font-bold leading-[1.02] tracking-tighter text-white"
+                id="hero-title"
+              >
+                <div>Ship software.</div>
+                <div className="text-transparent bg-clip-text bg-gradient-to-r from-neon-green via-white to-gray-400">
+                  Not regressions.
+                </div>
+                <div className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-600">
+                  Not risk.
+                </div>
+              </h1>
+
+              <p className="text-base sm:text-lg text-gray-300 leading-relaxed font-light split-text-target">
+                Workflo is the privacy-first autonomous QA copilot that tests software in
+                hardware-isolated, air-gapped micro-containers and stamps verifiable cryptographic execution receipts.
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-4 pt-2 w-full sm:w-auto fade-up-target">
+                <button
+                  onClick={() => openModal("waitlist-modal")}
+                  className="scale-cta-primary !px-7 !py-3.5 text-sm cursor-pointer flex items-center gap-2 shadow-[0_0_30px_rgba(200,255,61,0.25)] hover:shadow-[0_0_40px_rgba(200,255,61,0.45)] transition-all"
+                >
+                  <span>Start Free Trial</span>
+                  <span className="btn-arrow">→</span>
+                </button>
+                <button
+                  onClick={() => openModal("demo-modal")}
+                  className="scale-cta-secondary !px-7 !py-3.5 text-sm cursor-pointer flex items-center gap-2"
+                >
+                  <span>Book a Demo</span>
+                  <span className="btn-arrow">→</span>
+                </button>
+              </div>
+
+              {/* Live Telemetry Feature Strip */}
+              <div className="grid grid-cols-3 gap-3 p-3 rounded-2xl bg-white/[0.02] border border-white/[0.08] font-mono text-[11px] w-full max-w-lg mt-2">
+                <div>
+                  <span className="text-gray-500 text-[9px] block uppercase">Executions</span>
+                  <strong className="text-white font-bold">10M+ Runs</strong>
+                </div>
+                <div>
+                  <span className="text-gray-500 text-[9px] block uppercase">Enclave Boot</span>
+                  <strong className="text-[#c8ff3d] font-bold">11.8ms KVM</strong>
+                </div>
+                <div>
+                  <span className="text-gray-500 text-[9px] block uppercase">Flake Score</span>
+                  <strong className="text-emerald-400 font-bold">0.01% Clean</strong>
+                </div>
+              </div>
             </div>
 
-            <h1
-              className="text-5xl md:text-7xl lg:text-[7.5rem] font-bold leading-[0.9] tracking-tighter mb-8 w-full max-w-5xl"
-              id="hero-title"
-            >
-              <div className="text-white">Ship software.</div>
-              <div className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-500">
-                Not regressions.
-              </div>
-              <div className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700">
-                Not risk.
-              </div>
-            </h1>
-
-            <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed split-text-target font-light">
-              Workflo is the privacy-first autonomous QA platform that tests software in
-              isolated, air-gapped sandboxes and produces verifiable cryptographic execution receipts.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-24 fade-up-target opacity-0">
-              <button
-                onClick={() => openModal("waitlist-modal")}
-                className="scale-cta-primary !px-8 !py-4 text-base cursor-pointer"
-              >
-                Start Free Trial <span className="btn-arrow">→</span>
-              </button>
-              <button
-                onClick={() => openModal("demo-modal")}
-                className="scale-cta-secondary !px-8 !py-4 text-base cursor-pointer"
-              >
-                Book a Demo <span className="btn-arrow">→</span>
-              </button>
-            </div>
-
-            <div className="flex flex-col items-center gap-5 text-sm text-gray-500 fade-up-target opacity-0">
-              <div className="tracking-[0.1em] uppercase text-xs font-semibold font-mono">
-                Trusted by elite engineering teams worldwide
-              </div>
-              <div className="flex flex-wrap justify-center gap-8 md:gap-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-                <span className="flex items-center gap-2 text-xl font-bold text-white">
-                  <i className="ph-fill ph-triangle" /> Vercel
-                </span>
-                <span className="flex items-center gap-2 text-xl font-bold text-white">
-                  <i className="ph-bold ph-intersect" /> Linear
-                </span>
-                <span className="flex items-center gap-2 text-xl font-bold text-white">
-                  <i className="ph-fill ph-framer-logo" /> Framer
-                </span>
-                <span className="flex items-center gap-2 text-xl font-bold text-white">
-                  <i className="ph-fill ph-database" /> Supabase
-                </span>
+            {/* Right Column: 3D Interactive WebGL Quantum Stage */}
+            <div className="lg:col-span-5 relative w-full aspect-square sm:aspect-auto sm:h-[480px] lg:h-[530px] flex items-center justify-center">
+              <div className="w-full h-full relative rounded-3xl flex items-center justify-center overflow-hidden border border-white/[0.1] bg-gradient-to-br from-white/[0.04] via-[#050907] to-transparent backdrop-blur-2xl shadow-[0_25px_70px_rgba(0,0,0,0.9)] scale-corner-plus">
+                <HeroInteractiveCore3D />
+                
+                {/* Futuristic HUD crosshair overlay */}
+                <div className="absolute top-4 right-4 z-10 font-mono text-[10px] text-gray-400 flex items-center gap-2 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/[0.08]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#c8ff3d] animate-ping" />
+                  <span>3D QUANTUM ARTIFACT</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-[10px] font-semibold text-gray-600 uppercase tracking-widest fade-up-target opacity-0 font-mono">
-            <div className="w-[1px] h-16 bg-gradient-to-b from-gray-800 to-transparent overflow-hidden relative">
-              <div className="w-full h-1/2 bg-neon-green absolute top-0 left-0 animate-[scrolldown_2s_ease-in-out_infinite]" />
+          {/* Footer Branding Row (Trusted By Section) */}
+          <div className="max-w-7xl mx-auto w-full border-t border-white/[0.08] pt-8 flex flex-col sm:flex-row items-center justify-between gap-6 z-10 mt-8">
+            <div className="flex flex-wrap items-center gap-6 text-xs text-gray-500 tracking-wider uppercase font-mono">
+              <span>Trusted by elite engineering teams:</span>
+              <div className="flex items-center gap-6 text-gray-400 font-bold">
+                <span className="hover:text-white transition-colors">▲ Vercel</span>
+                <span className="hover:text-white transition-colors">Linear</span>
+                <span className="hover:text-white transition-colors">Framer</span>
+                <span className="hover:text-white transition-colors">Supabase</span>
+              </div>
             </div>
-            Scroll to explore execution pipeline
+            <div className="text-xs text-gray-500 font-mono flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-neon-green animate-pulse" />
+              <span>Scroll to explore execution pipeline ↓</span>
+            </div>
           </div>
         </section>
 
@@ -1094,16 +1128,22 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── ACT 04: EXECUTION / SANDBOX ── */}
+        {/* ── ACT 04: 3D HOLOGRAPHIC CAPABILITIES MATRIX ── */}
+        <HolographicCardsSection />
+
+        {/* ── ACT 05: EXECUTION / SANDBOX ── */}
         <SandboxBoundarySection />
 
-        {/* ── ACT 05: EVIDENCE GRAPH ── */}
+        {/* ── ACT 06: LIVE OPERATIONS & QA DASHBOARD ── */}
+        <FeatureDashboard />
+
+        {/* ── ACT 07: EVIDENCE GRAPH ── */}
         <EvidenceGraphSection />
 
-        {/* ── ACT 06 & 07: RECEIPT & INTERACTIVE VERIFICATION ── */}
+        {/* ── ACT 08 & 09: RECEIPT & INTERACTIVE VERIFICATION ── */}
         <VerificationInteractiveSection />
 
-        {/* ── ACT 08 & 09: SECURITY & USE CASES ── */}
+        {/* ── ACT 10: SECURITY & COMPLIANCE MATRIX ── */}
         <SecurityUseCasesSection />
 
         {/* ── HOW IT WORKS: PINNED 3D EXTRUDED GLASS PLATES ── */}
@@ -1718,6 +1758,9 @@ export default function Home() {
           </form>
         </div>
       </div>
+
+      {/* ── Real-time Floating Telemetry Notification HUD ── */}
+      <VisualNotificationHUD />
     </div>
   );
 }
