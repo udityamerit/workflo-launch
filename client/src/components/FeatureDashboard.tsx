@@ -183,14 +183,14 @@ export default function FeatureDashboard() {
   return (
     <section id="operations-dashboard" className="relative w-full bg-[#060606] text-white py-24 px-6 md:px-12 lg:px-24 overflow-hidden border-t border-white/5">
       {/* Background Lighting Accents */}
-      <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-[#C8FF3D]/5 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#C8FF3D]/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-[#FFAE33]/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#FFAE33]/10 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-16">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C8FF3D]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FFAE33]" />
             <span className="text-xs font-mono uppercase tracking-widest text-white/60">
               Observable Performance
             </span>
@@ -216,15 +216,15 @@ export default function FeatureDashboard() {
               <motion.div
                 key={stat.label}
                 variants={cardFadeUp}
-                className="group relative p-8 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md transition-all duration-300 hover:border-[#C8FF3D]/30 hover:bg-white/[0.05]"
+                className="group relative p-8 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md transition-all duration-300 hover:border-[#FFAE33]/30 hover:bg-white/[0.05]"
               >
-                <div className="text-5xl sm:text-6xl font-bold font-mono tracking-tight text-[#C8FF3D] flex items-baseline">
+                <div className="text-5xl sm:text-6xl font-bold font-mono tracking-tight text-[#FFAE33] flex items-baseline">
                   <span ref={counters[i].ref}>{counters[i].display}</span>
                 </div>
                 <p className="mt-3 text-sm sm:text-base text-white/60 font-medium leading-relaxed">
                   {stat.label}
                 </p>
-                <div className="mt-4 flex items-center text-xs text-[#C8FF3D]/60 font-mono tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="mt-4 flex items-center text-xs text-[#FFAE33]/60 font-mono tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
                   <span>Live telemetry benchmark</span>
                   <ArrowUpRight size={14} className="ml-1" />
                 </div>
@@ -245,12 +245,12 @@ export default function FeatureDashboard() {
               <div className="flex items-center space-x-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
                 <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#C8FF3D]/80 inline-block" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#FFAE33]/80 inline-block" />
                 <span className="ml-3 text-white/50">app.workflo.dev/console</span>
               </div>
               <div className="flex items-center space-x-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#C8FF3D] animate-pulse" />
-                <span className="text-[#C8FF3D]">SANDBOX ACTIVE</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFAE33] animate-pulse" />
+                <span className="text-[#FFAE33]">SANDBOX ACTIVE</span>
               </div>
             </div>
 
@@ -272,7 +272,7 @@ export default function FeatureDashboard() {
                         onClick={() => setActiveNav(item.id)}
                         className={`w-full flex items-center space-x-2.5 px-3 py-2 rounded-lg text-xs font-medium transition-all ${
                           isActive
-                            ? "bg-[#C8FF3D]/10 text-[#C8FF3D] border border-[#C8FF3D]/20 font-semibold"
+                            ? "bg-[#FFAE33]/10 text-[#FFAE33] border border-[#FFAE33]/20 font-semibold"
                             : "text-white/50 hover:text-white hover:bg-white/5"
                         }`}
                       >
@@ -286,7 +286,7 @@ export default function FeatureDashboard() {
                 <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 text-[11px] text-white/40 space-y-1">
                   <div className="flex items-center justify-between text-white/60 font-mono">
                     <span>Cluster</span>
-                    <span className="text-[#C8FF3D]">us-east-1</span>
+                    <span className="text-[#FFAE33]">us-east-1</span>
                   </div>
                   <div>v2.4.0 (isol-sandbox)</div>
                 </div>
@@ -342,7 +342,7 @@ export default function FeatureDashboard() {
                       </div>
                       <div
                         className={`text-[10px] font-mono mt-0.5 ${
-                          kpi.fail ? "text-red-400" : "text-[#C8FF3D]"
+                          kpi.fail ? "text-red-400" : "text-[#FFAE33]"
                         }`}
                       >
                         {kpi.delta}
@@ -373,13 +373,13 @@ export default function FeatureDashboard() {
                       >
                         <div className="col-span-2 flex items-center space-x-2">
                           {run.passed ? (
-                            <CheckCircle2 size={15} className="text-[#C8FF3D]" />
+                            <CheckCircle2 size={15} className="text-[#FFAE33]" />
                           ) : (
                             <XCircle size={15} className="text-red-400" />
                           )}
                           <span
                             className={`font-mono text-[11px] ${
-                              run.passed ? "text-[#C8FF3D]" : "text-red-400"
+                              run.passed ? "text-[#FFAE33]" : "text-red-400"
                             }`}
                           >
                             {run.passed ? "PASS" : "FAIL"}
@@ -417,10 +417,10 @@ export default function FeatureDashboard() {
                 {/* Footer Status / Run Trigger */}
                 <div className="flex items-center justify-between text-xs text-white/40 pt-1">
                   <div className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C8FF3D]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFAE33]" />
                     <span>All 24 test nodes healthy</span>
                   </div>
-                  <button className="text-xs font-mono text-[#C8FF3D] hover:underline flex items-center space-x-1">
+                  <button className="text-xs font-mono text-[#FFAE33] hover:underline flex items-center space-x-1">
                     <span>Inspect live telemetry</span>
                     <span>→</span>
                   </button>

@@ -37,7 +37,7 @@ const INITIAL_NOTIFICATIONS: TelemetryNotification[] = [
     title: "Enclave #WF-4492 Booted",
     detail: "Hardware-isolated micro-VM online in 11.8ms (cgroup v2 + KVM)",
     badge: "AIR-GAPPED",
-    badgeColor: "#c8ff3d",
+    badgeColor: "#FFAE33",
   },
   {
     id: "notif-2",
@@ -75,7 +75,7 @@ const STREAM_ITEMS: Omit<TelemetryNotification, "id">[] = [
     title: "Zero-Memory Residue Purged",
     detail: "Ephemeral tmpfs destroyed; memory pages scrubbed to 0x00",
     badge: "SCRUBBED",
-    badgeColor: "#c8ff3d",
+    badgeColor: "#FFAE33",
   },
   {
     type: "ai",
@@ -99,7 +99,7 @@ const STREAM_ITEMS: Omit<TelemetryNotification, "id">[] = [
     title: "Secret Leak Isolation Verified",
     detail: "0 production API keys or host environmental variables exposed",
     badge: "COMPLIANT",
-    badgeColor: "#c8ff3d",
+    badgeColor: "#FFAE33",
   },
 ];
 
@@ -160,7 +160,7 @@ export default function VisualNotificationHUD() {
         return <CheckCircle2 className="w-3.5 h-3.5 text-[#a855f7]" />;
       case "sandbox":
       default:
-        return <Terminal className="w-3.5 h-3.5 text-[#c8ff3d]" />;
+        return <Terminal className="w-3.5 h-3.5 text-[#FFAE33]" />;
     }
   };
 
@@ -176,13 +176,13 @@ export default function VisualNotificationHUD() {
             setIsExpanded(true);
             setShowToast(false);
           }}
-          className="pointer-events-auto mb-3 max-w-sm w-full bg-[#0a0f12]/95 backdrop-blur-xl border border-[#c8ff3d]/30 rounded-2xl p-4 shadow-[0_10px_35px_rgba(0,0,0,0.85)] cursor-pointer transition-all duration-300 hover:border-[#c8ff3d] hover:scale-[1.02] animate-slideInRight scale-corner-plus"
+          className="pointer-events-auto mb-3 max-w-sm w-full bg-[#0a0f12]/95 backdrop-blur-xl border border-[#FFAE33]/30 rounded-2xl p-4 shadow-[0_10px_35px_rgba(0,0,0,0.85)] cursor-pointer transition-all duration-300 hover:border-[#FFAE33] hover:scale-[1.02] animate-slideInRight scale-corner-plus"
           role="status"
           aria-live="polite"
         >
           <div className="flex items-center justify-between gap-2 mb-1.5">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#c8ff3d] hotspot-beacon" />
+              <span className="w-2 h-2 rounded-full bg-[#FFAE33] hotspot-beacon" />
               <span className="font-mono text-[10px] text-gray-400 uppercase tracking-wider">
                 {latestToast.timestamp} // LIVE TELEMETRY
               </span>
@@ -226,10 +226,10 @@ export default function VisualNotificationHUD() {
           {/* Header */}
           <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 mb-3">
             <div className="flex items-center gap-2.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#c8ff3d] hotspot-beacon" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#FFAE33] hotspot-beacon" />
               <div>
                 <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-white flex items-center gap-2">
-                  TELEMETRY HUD <span className="text-[#c8ff3d]">LIVE</span>
+                  TELEMETRY HUD <span className="text-[#FFAE33]">LIVE</span>
                 </h4>
                 <span className="text-[9px] font-mono text-gray-500">
                   REAL-TIME WORKFLO RUNTIME STREAM
@@ -270,7 +270,7 @@ export default function VisualNotificationHUD() {
                 onClick={() => setFilter(f)}
                 className={`px-2.5 py-1 rounded-lg uppercase tracking-wider transition-all cursor-pointer ${
                   filter === f
-                    ? "bg-[#c8ff3d] text-black font-bold shadow"
+                    ? "bg-[#FFAE33] text-black font-bold shadow"
                     : "bg-white/[0.04] text-gray-400 hover:text-white hover:bg-white/[0.08]"
                 }`}
               >
@@ -335,18 +335,18 @@ export default function VisualNotificationHUD() {
           setShowToast(false);
           setUnreadCount(0);
         }}
-        className="pointer-events-auto px-4 py-2.5 rounded-full bg-[#0a0e12]/90 hover:bg-[#121920] border border-[#c8ff3d]/40 text-white font-mono text-xs shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex items-center gap-3 cursor-pointer group active:scale-95 transition-all duration-300"
+        className="pointer-events-auto px-4 py-2.5 rounded-full bg-[#0a0e12]/90 hover:bg-[#121920] border border-[#FFAE33]/40 text-white font-mono text-xs shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex items-center gap-3 cursor-pointer group active:scale-95 transition-all duration-300"
         aria-label="Toggle Telemetry HUD"
         aria-expanded={isExpanded}
       >
         <div className="relative flex items-center justify-center">
-          <Bell size={14} className="text-[#c8ff3d] group-hover:rotate-12 transition-transform" />
-          <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[#c8ff3d] hotspot-beacon" />
+          <Bell size={14} className="text-[#FFAE33] group-hover:rotate-12 transition-transform" />
+          <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[#FFAE33] hotspot-beacon" />
         </div>
         <span className="text-[11px] uppercase tracking-wider font-semibold text-gray-200">
           Telemetry HUD
         </span>
-        <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-[#c8ff3d]/20 text-[#c8ff3d] font-bold border border-[#c8ff3d]/40">
+        <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-[#FFAE33]/20 text-[#FFAE33] font-bold border border-[#FFAE33]/40">
           {unreadCount > 0 ? unreadCount : "LIVE"}
         </span>
         {isExpanded ? <ChevronDown size={14} /> : <ChevronUp size={14} />}

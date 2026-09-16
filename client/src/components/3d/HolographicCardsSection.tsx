@@ -56,7 +56,7 @@ const CARDS: CardData[] = [
       { label: "HEURISTIC ACCURACY", val: "99.8%" },
       { label: "PARALLEL THREADS", val: "32 Nodes" },
     ],
-    accentColor: "#C8FF3D",
+    accentColor: "#FFAE33",
   },
   {
     id: "sandbox",
@@ -329,9 +329,9 @@ export default function HolographicCardsSection() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-[#C8FF3D]/30 bg-[#C8FF3D]/10 backdrop-blur-md mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C8FF3D] animate-pulse" />
-              <span className="text-xs font-mono uppercase tracking-widest text-[#C8FF3D]">
+            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-[#FFAE33]/30 bg-[#FFAE33]/10 backdrop-blur-md mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FFAE33] animate-pulse" />
+              <span className="text-xs font-mono uppercase tracking-widest text-[#FFAE33]">
                 Dimension 04 // Holographic Artifacts
               </span>
             </div>

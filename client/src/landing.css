@@ -2666,10 +2666,161 @@ a:hover .btn-arrow {
   background: rgba(255, 255, 255, 0.02);
 }
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background: rgba(200, 255, 61, 0.3);
+  background: rgba(255, 174, 51, 0.3);
   border-radius: 4px;
 }
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background: rgba(200, 255, 61, 0.6);
+  background: rgba(255, 174, 51, 0.6);
 }
+
+/* ── Orbyte / 3D Vault Concept Design Tokens ────────────────────── */
+:root {
+  --vault-gold: #FFAE33;
+  --vault-amber: #FF8800;
+  --vault-glow: rgba(255, 174, 51, 0.45);
+  --vault-glow-subtle: rgba(255, 174, 51, 0.12);
+  --vault-bg: #050505;
+  --font-display: 'Syne', 'Space Grotesk', 'Inter', sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+}
+
+/* Chrome Brushed Gradient Heading */
+.chrome-heading {
+  background: linear-gradient(180deg, #FFFFFF 25%, #CBD5E1 65%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.chrome-heading-amber {
+  background: linear-gradient(180deg, #FFFFFF 15%, #FDE68A 55%, #FFAE33 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Four-Point Star Icon */
+.four-star {
+  display: inline-block;
+  color: #FFAE33;
+  filter: drop-shadow(0 0 14px rgba(255, 174, 51, 0.9));
+  vertical-align: middle;
+}
+
+/* Crosshair Coordinate Grid Overlay */
+.crosshair-grid {
+  background-image: 
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+/* Overhead Celestial Spotlight Bloom */
+.overhead-vault-bloom {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 550px;
+  background: radial-gradient(ellipse at 50% 15%, rgba(255, 174, 51, 0.32) 0%, rgba(255, 136, 0, 0.14) 38%, rgba(255, 90, 0, 0.03) 65%, transparent 80%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Corner-bracket technical buttons (┌ ┐ └ ┘) */
+.bracket-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #F4F4F5;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bracket-btn::before,
+.bracket-btn::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.bracket-btn::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid #FFAE33;
+  border-left: 2px solid #FFAE33;
+}
+.bracket-btn::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid #FFAE33;
+  border-right: 2px solid #FFAE33;
+}
+
+.bracket-btn:hover {
+  background: rgba(255, 174, 51, 0.08);
+  border-color: rgba(255, 174, 51, 0.3);
+  color: #FFFFFF;
+  box-shadow: 0 0 24px rgba(255, 174, 51, 0.25);
+  transform: translateY(-1px);
+}
+.bracket-btn:hover::before,
+.bracket-btn:hover::after {
+  width: 10px;
+  height: 10px;
+  border-color: #FFAE33;
+  box-shadow: 0 0 10px #FFAE33;
+}
+
+/* Bracketed Metadata Badges [ V.02.4.N ] / [ AI VERIFICATION ] */
+.bracket-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+.bracket-tag::before {
+  content: "[";
+  color: #FFAE33;
+  font-weight: 600;
+}
+.bracket-tag::after {
+  content: "]";
+  color: #FFAE33;
+  font-weight: 600;
+}
+
+.arrow-link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.65);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+.arrow-link:hover {
+  color: #FFAE33;
+  transform: translateX(2px);
+}
+
 

@@ -10,6 +10,7 @@ import EvidenceGraphSection from "@/components/landing/EvidenceGraphSection";
 import VerificationInteractiveSection from "@/components/landing/VerificationInteractiveSection";
 import SecurityUseCasesSection from "@/components/landing/SecurityUseCasesSection";
 import HeroInteractiveCore3D from "@/components/3d/HeroInteractiveCore3D";
+import ParticleSingularityVaultOrb from "@/components/3d/ParticleSingularityVaultOrb";
 import HolographicCardsSection from "@/components/3d/HolographicCardsSection";
 import FeatureDashboard from "@/components/FeatureDashboard";
 import VisualNotificationHUD from "@/components/landing/VisualNotificationHUD";
@@ -691,148 +692,136 @@ export default function Home() {
       <div id="hero-canvas" ref={heroCanvasRef} />
 
       {/* Scale AI Style Announcement Bar */}
-      <div className="bg-[#050505] border-b border-white/[0.08] text-xs font-mono py-2.5 px-6 text-center text-gray-300 relative z-50 flex items-center justify-center gap-3">
-        <span className="inline-flex items-center gap-1.5 text-neon-green">
-          <span className="w-1.5 h-1.5 rounded-full bg-neon-green animate-pulse" />
-          WORKFLO 2.0
+      <div className="bg-[#050505] border-b border-white/[0.08] text-xs font-mono py-2 px-6 text-center text-gray-400 relative z-50 flex items-center justify-center gap-3">
+        <span className="bracket-tag !text-[10px] text-[#FFAE33]">
+          V.01.3.N
         </span>
-        <span className="text-gray-500">|</span>
+        <span className="text-gray-600">|</span>
         <span>Hardware-isolated micro-containers with default-deny egress are now live.</span>
         <a
           href="#execution-sandbox"
-          className="text-white hover:text-neon-green transition-colors inline-flex items-center gap-1 underline underline-offset-4"
+          className="text-white hover:text-[#FFAE33] transition-colors inline-flex items-center gap-1 underline underline-offset-4"
         >
           Inspect Enclave →
         </a>
       </div>
 
-      {/* Navigation (Scale AI Inspired) */}
-      <nav className="sticky w-full z-50 top-0 py-3 transition-all duration-500" id="navbar">
+      {/* Navigation (Orbyte 3D Vault Inspired) */}
+      <nav className="sticky w-full z-50 top-0 py-3 transition-all duration-500 bg-[#050505]/75 backdrop-blur-xl border-b border-white/[0.05]" id="navbar">
         <div
-          className="max-w-7xl mx-auto px-6 flex justify-between items-center transition-all duration-500 rounded-full"
+          className="max-w-7xl mx-auto px-6 flex justify-between items-center transition-all duration-500"
           id="nav-inner"
         >
           <div className="flex items-center gap-3 cursor-pointer pl-2 text-white">
-            <span className="text-2xl font-bold tracking-tighter">
-              workflo<span className="text-neon-green">.</span>
+            <span className="text-2xl font-black font-display tracking-tight text-white uppercase">
+              workflo<span className="text-[#FFAE33]">.</span>
             </span>
-            <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase bg-white/[0.04] border border-white/[0.08] text-gray-400">
-              <span className="w-1.5 h-1.5 rounded-full bg-neon-green animate-pulse" />
-              v2.4 ENCLAVE
+            <span className="hidden sm:inline-flex bracket-tag !text-[10px] text-white/50">
+              V.01.3.N
             </span>
           </div>
 
-          <div className="hidden md:flex space-x-6 text-xs font-mono tracking-wide text-gray-400 uppercase">
-            <a href="#product" className="hover:text-white transition-colors">
-              Autonomous QA
+          <div className="hidden md:flex space-x-7 text-xs font-mono tracking-wider text-gray-400 uppercase">
+            <a href="#product" className="hover:text-white transition-colors flex items-center gap-1">
+              Product <span className="text-[#FFAE33]">↗</span>
             </a>
-            <a href="#capabilities" className="hover:text-white transition-colors">
-              Capabilities
+            <a href="#capabilities" className="hover:text-white transition-colors flex items-center gap-1">
+              Solutions <span className="text-[#FFAE33]">↗</span>
             </a>
-            <a href="#execution-sandbox" className="hover:text-white transition-colors">
-              Sandbox
+            <a href="#execution-sandbox" className="hover:text-white transition-colors flex items-center gap-1">
+              Developers <span className="text-[#FFAE33]">↗</span>
             </a>
-            <a href="#operations-dashboard" className="hover:text-white transition-colors">
-              Operations HUD
+            <a href="#receipt-verification" className="hover:text-white transition-colors flex items-center gap-1">
+              Resources <span className="text-[#FFAE33]">↗</span>
             </a>
-            <a href="#receipt-verification" className="hover:text-white transition-colors">
-              Verification
-            </a>
-            <a href="#workflow-section" className="hover:text-white transition-colors">
-              Pipeline
-            </a>
-            <a href="#pricing" className="hover:text-white transition-colors">
-              Pricing
+            <a href="#pricing" className="hover:text-white transition-colors flex items-center gap-1">
+              Pricing <span className="text-[#FFAE33]">↗</span>
             </a>
           </div>
 
-          <div className="hidden md:flex items-center space-x-3 pr-2">
-            <a
-              href="/docs"
-              className="text-gray-300 hover:text-white text-xs font-mono uppercase transition-colors"
-            >
-              Docs
-            </a>
+          <div className="hidden md:flex items-center space-x-4 pr-2">
             <button
               onClick={() => openModal("demo-modal")}
-              className="scale-cta-secondary !py-2 !px-4 !text-xs font-mono uppercase cursor-pointer"
+              className="arrow-link !text-xs cursor-pointer"
             >
-              Book a demo
+              Watch Demo →
             </button>
             <button
               onClick={() => openModal("waitlist-modal")}
-              className="scale-cta-primary !py-2 !px-4 !text-xs font-mono uppercase cursor-pointer"
+              className="bracket-btn !py-2 !px-5 !text-xs cursor-pointer"
             >
-              Start Trial <span className="btn-arrow">→</span>
+              Start Trial
             </button>
           </div>
         </div>
       </nav>
 
       <main className="relative z-10 space-y-12">
-        {/* ── ACT 01: ARRIVAL / HERO (Scale AI Style with Interactive 3D Core) ── */}
+        {/* ── ACT 01: ARRIVAL / HERO (Orbyte 3D Vault Concept) ── */}
         <section
-          className="min-h-screen flex flex-col justify-between pt-28 pb-12 px-6 md:px-12 lg:px-24 relative overflow-hidden"
+          className="min-h-screen flex flex-col justify-between pt-28 pb-12 px-6 md:px-12 lg:px-24 relative overflow-hidden crosshair-grid"
           id="hero"
         >
-          {/* Background Ambient Glows */}
-          <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#c8ff3d]/10 rounded-full blur-[160px] pointer-events-none" />
-          <div className="absolute bottom-[20%] left-[-15%] w-[500px] h-[500px] bg-[#38bdf8]/5 rounded-full blur-[140px] pointer-events-none" />
+          {/* Overhead Celestial Spotlight Bloom */}
+          <div className="overhead-vault-bloom" />
 
           {/* Main Hero Grid */}
-          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center my-auto z-10">
+          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center my-auto z-10">
             {/* Left Column: Typography & CTAs */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left space-y-6 max-w-2xl">
-              <div className="scale-badge font-mono">
-                <span className="w-2 h-2 rounded-full bg-neon-green hotspot-beacon" />
-                <span>DIMENSION 01 // AUTONOMOUS QA MATRIX</span>
+            <div className="lg:col-span-7 flex flex-col items-start text-left space-y-7 max-w-2xl">
+              <div className="bracket-tag text-xs font-mono text-white/70">
+                AI INTELLIGENCE
               </div>
 
               <h1
-                className="text-4xl sm:text-6xl md:text-7xl font-bold leading-[1.02] tracking-tighter text-white"
+                className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-black font-display leading-[0.96] tracking-tight uppercase select-none"
                 id="hero-title"
               >
-                <div>Ship software.</div>
-                <div className="text-transparent bg-clip-text bg-gradient-to-r from-neon-green via-white to-gray-400">
-                  Not regressions.
+                <div className="chrome-heading">WHERE DATA</div>
+                <div className="flex items-center gap-2 sm:gap-4 my-1 flex-wrap">
+                  <span className="four-star text-3xl sm:text-5xl md:text-6xl">✦</span>
+                  <span className="chrome-heading">MEETS BUSINESS</span>
                 </div>
-                <div className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-600">
-                  Not risk.
-                </div>
+                <div className="chrome-heading">WITH INTELLIGENT QA</div>
               </h1>
 
-              <p className="text-base sm:text-lg text-gray-300 leading-relaxed font-light split-text-target">
-                Workflo is the privacy-first autonomous QA copilot that tests software in
-                hardware-isolated, air-gapped micro-containers and stamps verifiable cryptographic execution receipts.
-              </p>
+              <div className="flex flex-col space-y-4 max-w-lg">
+                <div className="flex items-center gap-3 font-mono text-xs text-white/60">
+                  <span className="text-[#FFAE33] font-bold">( A )</span>
+                  <span className="text-white/30">|</span>
+                  <span className="font-mono text-white/50">[ 001 / 006 ]</span>
+                </div>
+
+                <p className="text-sm sm:text-base text-gray-300 font-light leading-relaxed">
+                  Workflo unifies autonomous test synthesis, air-gapped hardware micro-containers, and cryptographic receipts into one intelligence system so SaaS teams automate decisions and scale smarter.
+                </p>
+              </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2 w-full sm:w-auto fade-up-target">
+              <div className="flex flex-wrap items-center gap-6 pt-2 w-full sm:w-auto fade-up-target">
                 <button
                   onClick={() => openModal("waitlist-modal")}
-                  className="scale-cta-primary !px-7 !py-3.5 text-sm cursor-pointer flex items-center gap-2 shadow-[0_0_30px_rgba(200,255,61,0.25)] hover:shadow-[0_0_40px_rgba(200,255,61,0.45)] transition-all"
+                  className="bracket-btn !px-8 !py-3.5 text-xs font-mono font-bold tracking-widest text-white shadow-[0_0_30px_rgba(255,174,51,0.25)] hover:shadow-[0_0_40px_rgba(255,174,51,0.45)] transition-all cursor-pointer"
                 >
-                  <span>Start Free Trial</span>
-                  <span className="btn-arrow">→</span>
+                  Building with AI
                 </button>
                 <button
                   onClick={() => openModal("demo-modal")}
-                  className="scale-cta-secondary !px-7 !py-3.5 text-sm cursor-pointer flex items-center gap-2"
+                  className="arrow-link text-xs font-mono cursor-pointer"
                 >
-                  <span>Book a Demo</span>
-                  <span className="btn-arrow">→</span>
+                  Watch Demo <span className="text-[#FFAE33]">→</span>
                 </button>
               </div>
 
               {/* Live Telemetry Feature Strip */}
-              <div className="grid grid-cols-3 gap-3 p-3 rounded-2xl bg-white/[0.02] border border-white/[0.08] font-mono text-[11px] w-full max-w-lg mt-2">
+              <div className="grid grid-cols-3 gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/[0.08] font-mono text-[11px] w-full max-w-lg mt-2">
                 <div>
                   <span className="text-gray-500 text-[9px] block uppercase">Executions</span>
                   <strong className="text-white font-bold">10M+ Runs</strong>
                 </div>
                 <div>
                   <span className="text-gray-500 text-[9px] block uppercase">Enclave Boot</span>
-                  <strong className="text-[#c8ff3d] font-bold">11.8ms KVM</strong>
+                  <strong className="text-[#FFAE33] font-bold">11.8ms KVM</strong>
                 </div>
                 <div>
                   <span className="text-gray-500 text-[9px] block uppercase">Flake Score</span>
@@ -841,44 +830,38 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Column: 3D Interactive WebGL Quantum Stage */}
-            <div className="lg:col-span-5 relative w-full aspect-square sm:aspect-auto sm:h-[480px] lg:h-[530px] flex items-center justify-center">
-              <div className="w-full h-full relative rounded-3xl flex items-center justify-center overflow-hidden border border-white/[0.1] bg-gradient-to-br from-white/[0.04] via-[#050907] to-transparent backdrop-blur-2xl shadow-[0_25px_70px_rgba(0,0,0,0.9)] scale-corner-plus">
-                <HeroInteractiveCore3D />
-                
-                {/* Futuristic HUD crosshair overlay */}
-                <div className="absolute top-4 right-4 z-10 font-mono text-[10px] text-gray-400 flex items-center gap-2 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/[0.08]">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#c8ff3d] animate-ping" />
-                  <span>3D QUANTUM ARTIFACT</span>
-                </div>
+            {/* Right Column: 3D Interactive Luminous Particle Singularity Orb */}
+            <div className="lg:col-span-5 relative w-full aspect-square sm:aspect-auto sm:h-[500px] lg:h-[560px] flex items-center justify-center">
+              <div className="w-full h-full relative rounded-3xl flex items-center justify-center overflow-hidden border border-white/[0.08] bg-gradient-to-b from-white/[0.03] via-[#060606] to-transparent backdrop-blur-2xl shadow-[0_30px_90px_rgba(0,0,0,0.95)]">
+                <ParticleSingularityVaultOrb />
               </div>
             </div>
           </div>
 
           {/* Footer Branding Row (Trusted By Section) */}
-          <div className="max-w-7xl mx-auto w-full border-t border-white/[0.08] pt-8 flex flex-col sm:flex-row items-center justify-between gap-6 z-10 mt-8">
-            <div className="flex flex-wrap items-center gap-6 text-xs text-gray-500 tracking-wider uppercase font-mono">
-              <span>Trusted by elite engineering teams:</span>
-              <div className="flex items-center gap-6 text-gray-400 font-bold">
-                <span className="hover:text-white transition-colors">▲ Vercel</span>
-                <span className="hover:text-white transition-colors">Linear</span>
-                <span className="hover:text-white transition-colors">Framer</span>
-                <span className="hover:text-white transition-colors">Supabase</span>
-              </div>
+          <div className="max-w-7xl mx-auto w-full border-t border-white/[0.08] pt-10 flex flex-col items-center gap-6 z-10 mt-12">
+            <div className="text-xs text-gray-500 tracking-widest uppercase font-mono text-center">
+              Trusted by modern product teams
             </div>
-            <div className="text-xs text-gray-500 font-mono flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-neon-green animate-pulse" />
-              <span>Scroll to explore execution pipeline ↓</span>
+            <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 text-gray-400 font-mono text-xs opacity-75">
+              <span className="hover:text-white transition-colors flex items-center gap-1.5"><span className="text-white font-bold text-sm">●●</span> Medium</span>
+              <span className="hover:text-white transition-colors flex items-center gap-1.5"><span className="text-[#FFAE33] font-bold text-sm">●</span> Outreach</span>
+              <span className="hover:text-white transition-colors font-sans font-bold text-sm tracking-tight">Adobe</span>
+              <span className="hover:text-white transition-colors font-bold text-sm">Framer</span>
+              <span className="hover:text-white transition-colors font-bold text-sm lowercase">amazon</span>
+              <span className="hover:text-white transition-colors flex items-center gap-1 text-sm"><i className="ph-fill ph-github-logo text-base" /> GitHub</span>
+              <span className="hover:text-white transition-colors font-bold text-sm">hopin</span>
+              <span className="hover:text-white transition-colors font-bold text-sm">Notion</span>
             </div>
           </div>
         </section>
 
         {/* ── SCALE AI STYLE SCROLLING IMPACT SECTION ── */}
-        <section className="border-y border-white/[0.08] bg-[#050505] py-20 px-6 relative z-10 scale-grid">
+        <section className="border-y border-white/[0.08] bg-[#050505] py-20 px-6 relative z-10 crosshair-grid">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
               <div className="max-w-3xl">
-                <div className="text-[10px] font-mono text-neon-green uppercase tracking-[0.25em] mb-4">
+                <div className="text-[10px] font-mono text-[#FFAE33] uppercase tracking-[0.25em] mb-4">
                   PROVEN PRODUCTION IMPACT // VERIFIABLE METRICS
                 </div>
                 <blockquote className="text-2xl md:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-snug">
@@ -888,8 +871,8 @@ export default function Home() {
               <div className="p-6 rounded-2xl bg-[#090909] border border-white/[0.08] font-mono text-xs space-y-3 min-w-[280px] shadow-2xl">
                 <div className="flex justify-between items-center text-gray-400">
                   <span>SYSTEM STATUS</span>
-                  <span className="text-neon-green flex items-center gap-1.5 font-bold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-neon-green animate-pulse" /> ENFORCING
+                  <span className="text-[#FFAE33] flex items-center gap-1.5 font-bold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFAE33] animate-pulse" /> ENFORCING
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-gray-400">
@@ -898,7 +881,7 @@ export default function Home() {
                 </div>
                 <div className="flex justify-between items-center text-gray-400">
                   <span>CRYPTOGRAPHIC SEALS</span>
-                  <span className="text-neon-green font-semibold">100% Deterministic</span>
+                  <span className="text-[#FFAE33] font-semibold">100% Deterministic</span>
                 </div>
               </div>
             </div>
