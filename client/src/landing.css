@@ -2428,3 +2428,91 @@ a:hover .btn-arrow {
   100% { transform: translate(0, 0); }
 }
 
+/* ── Scale AI (scale.com) Design System Utilities ────────────────── */
+.scale-grid {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.scale-dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.scale-corner-plus {
+  position: relative;
+}
+.scale-corner-plus::before {
+  content: "+";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  font-family: monospace;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.2);
+  line-height: 1;
+}
+.scale-corner-plus::after {
+  content: "+";
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  font-family: monospace;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.2);
+  line-height: 1;
+}
+
+.scale-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(200, 255, 61, 0.06);
+  border: 1px solid rgba(200, 255, 61, 0.2);
+  color: #c8ff3d;
+}
+
+.scale-cta-primary {
+  background: #c8ff3d;
+  color: #000;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.75rem 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 20px rgba(200, 255, 61, 0.2);
+}
+.scale-cta-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 35px rgba(200, 255, 61, 0.4);
+}
+
+.scale-cta-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 0.75rem 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scale-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #c8ff3d;
+}
+

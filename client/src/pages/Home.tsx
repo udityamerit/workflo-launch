@@ -1,18 +1,3 @@
-/**
- * Workflo — Premium AI QA Copilot Landing Page
- * 10-Act Cinematic Narrative Implementation (PRD & Design Specification):
- * - Act 01: Arrival / Hero (Three.js Glowing Ocean of Data + Line-by-Line Reveals)
- * - Act 02: The Problem (A Green Checkmark Isn't Proof — Fractured Evidence Layers)
- * - Act 03: Autonomous QA (Mac OS Code Editor Mockup + Playwright / Jest Synthesis)
- * - Act 04: Execution Boundary (Air-Gapped Sandbox Enclave + Egress Denial)
- * - Act 05: Evidence Graph (Merkle Artifact Tree + SHA-256 Digest Compression)
- * - Act 06 & 07: Receipt & Interactive Verification (Physical Security Plate + Tamper Glitch)
- * - Act 08 & 09: Security Architecture & Editorial Use Cases
- * - Pinned 3D Workflow Scrub (4-Tier Extruded Glass Plates: Connect, Generate, Validate, Ship)
- * - Product Telemetry Dashboard & KPI counters
- * - Interactive 3D Pricing Cards (Monthly / Annual Toggle + Perspective Tilt)
- * - Act 10: Final Conversion CTA & Modals
- */
 import React, { useEffect, useRef, useState, type FormEvent } from "react";
 import * as THREE from "three";
 import { gsap } from "gsap";
@@ -486,19 +471,19 @@ export default function Home() {
           start: "top -50",
           onEnter: () => {
             navInner.classList.add(
-              "bg-[#0a0a0a]/80",
+              "bg-[#0a0a0a]/90",
               "backdrop-blur-xl",
               "border",
-              "border-gray-800",
+              "border-white/[0.08]",
               "py-3"
             );
           },
           onLeaveBack: () => {
             navInner.classList.remove(
-              "bg-[#0a0a0a]/80",
+              "bg-[#0a0a0a]/90",
               "backdrop-blur-xl",
               "border",
-              "border-gray-800",
+              "border-white/[0.08]",
               "py-3"
             );
           },
@@ -701,8 +686,24 @@ export default function Home() {
       {/* Global ThreeJS Background (Ocean of Data) */}
       <div id="hero-canvas" ref={heroCanvasRef} />
 
-      {/* Navigation */}
-      <nav className="fixed w-full z-50 top-0 py-4 transition-all duration-500" id="navbar">
+      {/* Scale AI Style Announcement Bar */}
+      <div className="bg-[#050505] border-b border-white/[0.08] text-xs font-mono py-2.5 px-6 text-center text-gray-300 relative z-50 flex items-center justify-center gap-3">
+        <span className="inline-flex items-center gap-1.5 text-neon-green">
+          <span className="w-1.5 h-1.5 rounded-full bg-neon-green animate-pulse" />
+          WORKFLO 2.0
+        </span>
+        <span className="text-gray-500">|</span>
+        <span>Hardware-isolated micro-containers with default-deny egress are now live.</span>
+        <a
+          href="#execution-sandbox"
+          className="text-white hover:text-neon-green transition-colors inline-flex items-center gap-1 underline underline-offset-4"
+        >
+          Inspect Enclave →
+        </a>
+      </div>
+
+      {/* Navigation (Scale AI Inspired) */}
+      <nav className="sticky w-full z-50 top-0 py-3 transition-all duration-500" id="navbar">
         <div
           className="max-w-7xl mx-auto px-6 flex justify-between items-center transition-all duration-500 rounded-full"
           id="nav-inner"
@@ -713,7 +714,7 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="hidden md:flex space-x-8 text-xs font-mono tracking-wide text-gray-400 uppercase">
+          <div className="hidden md:flex space-x-7 text-xs font-mono tracking-wide text-gray-400 uppercase">
             <a href="#problem" className="hover:text-white transition-colors">
               The Problem
             </a>
@@ -734,36 +735,39 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="hidden md:flex items-center space-x-4 pr-2">
+          <div className="hidden md:flex items-center space-x-3 pr-2">
+            <a
+              href="/docs"
+              className="text-gray-300 hover:text-white text-xs font-mono uppercase transition-colors"
+            >
+              Docs
+            </a>
             <button
               onClick={() => openModal("demo-modal")}
-              className="text-gray-300 hover:text-white text-xs font-mono uppercase transition-colors cursor-pointer"
+              className="scale-cta-secondary !py-2 !px-4 !text-xs font-mono uppercase cursor-pointer"
             >
               Book a demo
             </button>
             <button
               onClick={() => openModal("waitlist-modal")}
-              className="btn-primary px-5 py-2.5 rounded-lg text-xs font-mono uppercase font-semibold flex items-center gap-2 cursor-pointer"
+              className="scale-cta-primary !py-2 !px-4 !text-xs font-mono uppercase cursor-pointer"
             >
-              Join waitlist <span className="btn-arrow">→</span>
+              Start Trial <span className="btn-arrow">→</span>
             </button>
           </div>
         </div>
       </nav>
 
       <main className="relative z-10 space-y-12">
-        {/* ── ACT 01: ARRIVAL / HERO ── */}
+        {/* ── ACT 01: ARRIVAL / HERO (Scale AI Style) ── */}
         <section
-          className="min-h-screen flex flex-col justify-center pt-32 pb-20 px-6 relative"
+          className="min-h-screen flex flex-col justify-center pt-24 pb-20 px-6 relative"
           id="hero"
         >
           <div className="max-w-7xl mx-auto w-full text-center z-10 flex flex-col items-center">
-            <div className="split-text-target inline-flex items-center gap-2 text-neon-green text-xs font-semibold tracking-[0.2em] uppercase mb-8 border border-neon-green/20 bg-neon-green/5 px-4 py-1.5 rounded-full font-mono">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-green opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-neon-green" />
-              </span>
-              EARLY ACCESS // AUTONOMOUS RUNTIME
+            <div className="scale-badge mb-8 font-mono">
+              <span className="w-1.5 h-1.5 rounded-full bg-neon-green animate-ping" />
+              RELIABLE QA SYSTEMS FOR CRITICAL SOFTWARE DECISIONS
             </div>
 
             <h1
@@ -780,28 +784,28 @@ export default function Home() {
             </h1>
 
             <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed split-text-target font-light">
-              Workflo is the privacy-first autonomous QA agent that tests software in
-              isolated sandboxes and produces verifiable execution receipts.
+              Workflo is the privacy-first autonomous QA platform that tests software in
+              isolated, air-gapped sandboxes and produces verifiable cryptographic execution receipts.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-24 fade-up-target opacity-0">
               <button
                 onClick={() => openModal("waitlist-modal")}
-                className="btn-primary px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-3 text-base cursor-pointer"
+                className="scale-cta-primary !px-8 !py-4 text-base cursor-pointer"
               >
-                Join early access <span className="btn-arrow">→</span>
+                Start Free Trial <span className="btn-arrow">→</span>
               </button>
               <button
                 onClick={() => openModal("demo-modal")}
-                className="btn-secondary px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-3 text-base cursor-pointer"
+                className="scale-cta-secondary !px-8 !py-4 text-base cursor-pointer"
               >
-                Book a demo <span className="btn-arrow">→</span>
+                Book a Demo <span className="btn-arrow">→</span>
               </button>
             </div>
 
             <div className="flex flex-col items-center gap-5 text-sm text-gray-500 fade-up-target opacity-0">
               <div className="tracking-[0.1em] uppercase text-xs font-semibold font-mono">
-                Trusted by elite engineering teams
+                Trusted by elite engineering teams worldwide
               </div>
               <div className="flex flex-wrap justify-center gap-8 md:gap-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
                 <span className="flex items-center gap-2 text-xl font-bold text-white">
@@ -825,6 +829,38 @@ export default function Home() {
               <div className="w-full h-1/2 bg-neon-green absolute top-0 left-0 animate-[scrolldown_2s_ease-in-out_infinite]" />
             </div>
             Scroll to explore execution pipeline
+          </div>
+        </section>
+
+        {/* ── SCALE AI STYLE SCROLLING IMPACT SECTION ── */}
+        <section className="border-y border-white/[0.08] bg-[#050505] py-20 px-6 relative z-10 scale-grid">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+              <div className="max-w-3xl">
+                <div className="text-[10px] font-mono text-neon-green uppercase tracking-[0.25em] mb-4">
+                  PROVEN PRODUCTION IMPACT // VERIFIABLE METRICS
+                </div>
+                <blockquote className="text-2xl md:text-4xl lg:text-5xl font-medium tracking-tight text-white leading-snug">
+                  &ldquo;87% of production regressions are caught before staging. Over 10M+ automated test runs executed in air-gapped sandboxes.&rdquo;
+                </blockquote>
+              </div>
+              <div className="p-6 rounded-2xl bg-[#090909] border border-white/[0.08] font-mono text-xs space-y-3 min-w-[280px] shadow-2xl">
+                <div className="flex justify-between items-center text-gray-400">
+                  <span>SYSTEM STATUS</span>
+                  <span className="text-neon-green flex items-center gap-1.5 font-bold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-neon-green animate-pulse" /> ENFORCING
+                  </span>
+                </div>
+                <div className="flex justify-between items-center text-gray-400">
+                  <span>ACTIVE ENCLAVES</span>
+                  <span className="text-white font-semibold">1,420 Micro-VMs</span>
+                </div>
+                <div className="flex justify-between items-center text-gray-400">
+                  <span>CRYPTOGRAPHIC SEALS</span>
+                  <span className="text-neon-green font-semibold">100% Deterministic</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -1200,12 +1236,12 @@ export default function Home() {
                   </div>
                   <button
                     onClick={() => openModal("checkout-modal")}
-                    className="btn-secondary w-full py-3 rounded-lg font-semibold mb-8 text-sm cursor-pointer"
+                    className="scale-cta-secondary w-full cursor-pointer text-sm font-medium"
                   >
                     Get Started <span className="btn-arrow">→</span>
                   </button>
 
-                  <div className="space-y-4 flex-grow text-sm text-gray-300">
+                  <div className="space-y-4 flex-grow text-sm text-gray-300 mt-6">
                     <div className="flex items-center gap-3 feature-item relative cursor-help">
                       <i className="ph-bold ph-check text-gray-500" />
                       <span>Up to 5 team members</span>
@@ -1243,12 +1279,12 @@ export default function Home() {
                   </div>
                   <button
                     onClick={() => openModal("checkout-modal")}
-                    className="btn-primary w-full py-3 rounded-lg font-semibold mb-8 text-sm shadow-[0_0_20px_rgba(183,255,0,0.2)] cursor-pointer"
+                    className="scale-cta-primary w-full cursor-pointer text-sm font-semibold"
                   >
                     Start Free Trial <span className="btn-arrow">→</span>
                   </button>
 
-                  <div className="space-y-4 flex-grow text-sm text-gray-200">
+                  <div className="space-y-4 flex-grow text-sm text-gray-200 mt-6">
                     <div className="flex items-center gap-3">
                       <i className="ph-bold ph-check text-neon-green" />
                       <span>Unlimited team members</span>
@@ -1284,12 +1320,12 @@ export default function Home() {
                   </div>
                   <button
                     onClick={() => openModal("demo-modal")}
-                    className="btn-secondary w-full py-3 rounded-lg font-semibold mb-8 text-sm cursor-pointer"
+                    className="scale-cta-secondary w-full cursor-pointer text-sm font-medium"
                   >
                     Contact Sales <span className="btn-arrow">→</span>
                   </button>
 
-                  <div className="space-y-4 flex-grow text-sm text-gray-300">
+                  <div className="space-y-4 flex-grow text-sm text-gray-300 mt-6">
                     <div className="flex items-center gap-3">
                       <i className="ph-bold ph-check text-gray-500" />
                       <span>Unlimited everything</span>
@@ -1314,9 +1350,9 @@ export default function Home() {
 
         {/* ── ACT 10: FINAL CONVERSION / CTA ── */}
         <section className="max-w-7xl mx-auto px-6 py-40 z-10 relative">
-          <div className="relative overflow-hidden rounded-[2rem] border border-gray-800 text-center bg-gradient-to-b from-[#111] to-[#050505] shadow-2xl p-16 md:p-24 cta-reveal scale-95 opacity-0">
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/[0.08] text-center bg-gradient-to-b from-[#111] to-[#050505] shadow-2xl p-16 md:p-24 cta-reveal scale-95 opacity-0 scale-grid">
             <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
-              <div className="inline-flex items-center gap-2 text-neon-green text-xs font-semibold tracking-[0.2em] uppercase mb-6 font-mono border border-neon-green/20 bg-neon-green/5 px-4 py-1.5 rounded-full">
+              <div className="scale-badge mb-6 font-mono">
                 ACT 10 // SHIP WITH EVIDENCE
               </div>
               <h2
@@ -1332,9 +1368,9 @@ export default function Home() {
               </p>
               <button
                 onClick={() => openModal("waitlist-modal")}
-                className="btn-primary px-10 py-5 rounded-xl font-bold flex items-center justify-center gap-3 text-lg mt-6 shadow-[0_0_40px_rgba(183,255,0,0.2)] cursor-pointer"
+                className="scale-cta-primary !px-10 !py-5 text-lg mt-6 cursor-pointer"
               >
-                Get early access <span className="btn-arrow">→</span>
+                Get Started <span className="btn-arrow">→</span>
               </button>
             </div>
           </div>
@@ -1348,7 +1384,7 @@ export default function Home() {
                 <span className="text-white text-lg font-sans font-bold tracking-tighter mr-4">
                   workflo<span className="text-neon-green">.</span>
                 </span>
-                &copy; 2026 workflo inc. Autonomous QA with Verifiable Execution.
+                &copy; 2026 workflo inc. Reliable QA Systems for Critical Decisions.
               </div>
               <div className="flex space-x-6 text-lg">
                 <a
@@ -1456,7 +1492,7 @@ export default function Home() {
               <button
                 type="submit"
                 disabled={modalSubmitting}
-                className="btn-primary w-full py-3 rounded-lg font-semibold mt-4 text-sm cursor-pointer"
+                className="scale-cta-primary w-full !py-3 rounded-lg text-sm cursor-pointer"
               >
                 {modalSubmitting ? "Processing..." : "Join Waitlist"}
               </button>
@@ -1516,7 +1552,7 @@ export default function Home() {
             <button
               type="submit"
               disabled={modalSubmitting}
-              className="btn-primary w-full py-3 rounded-lg font-semibold mt-4 text-sm cursor-pointer"
+              className="scale-cta-primary w-full !py-3 rounded-lg text-sm cursor-pointer"
             >
               {modalSubmitting
                 ? "Scheduling..."
@@ -1564,7 +1600,7 @@ export default function Home() {
             <button
               type="submit"
               disabled={modalSubmitting}
-              className="btn-primary w-full py-3 rounded-lg font-semibold mt-4 text-sm cursor-pointer"
+              className="scale-cta-primary w-full !py-3 rounded-lg text-sm cursor-pointer"
             >
               {modalSubmitting
                 ? "Activating..."

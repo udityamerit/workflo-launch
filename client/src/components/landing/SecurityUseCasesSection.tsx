@@ -62,18 +62,18 @@ export default function SecurityUseCasesSection() {
       {/* ── Act 08: Security Architecture ── */}
       <section className="max-w-7xl mx-auto px-6 relative z-10" id="security">
         <div className="mb-16 max-w-3xl">
-          <div className="inline-flex items-center gap-2 text-neon-green text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-neon-green/20 bg-neon-green/5 px-3.5 py-1.5 rounded-full font-mono">
-            <span>ACT 08 // SECURITY ARCHITECTURE</span>
+          <div className="scale-badge mb-4 font-mono">
+            <span>ACT 08 // ENTERPRISE SECURITY & COMPLIANCE</span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white leading-tight">
+          <h2 className="text-4xl md:text-6xl font-medium tracking-tighter text-white leading-tight">
             Isolation is a feature. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-green to-white font-light italic">
               Proof is the product.
             </span>
           </h2>
           <p className="text-gray-400 text-lg mt-6 font-light leading-relaxed max-w-2xl">
-            We reject the idea of granting unconstrained test runners access to production secrets or the
-            open internet. Workflo wraps every run in hardware-isolated boundaries.
+            Scale-level security standards. We reject the idea of granting unconstrained test runners access
+            to production secrets or the open internet. Every execution is wrapped in hardware-isolated boundaries.
           </p>
         </div>
 
@@ -83,16 +83,16 @@ export default function SecurityUseCasesSection() {
             return (
               <div
                 key={i}
-                className="bg-[#090909] border border-gray-800/90 rounded-2xl p-6 flex flex-col justify-between hover:border-gray-700 transition-colors shadow-lg"
+                className="bg-[#090909] border border-white/[0.08] rounded-2xl p-6 flex flex-col justify-between hover:border-white/[0.18] transition-colors shadow-lg scale-corner-plus"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-[#121212] border border-gray-800 text-neon-green flex items-center justify-center mb-5">
+                  <div className="w-10 h-10 rounded-xl bg-[#121212] border border-white/[0.08] text-neon-green flex items-center justify-center mb-5">
                     <Icon className="w-5 h-5" />
                   </div>
                   <h3 className="text-base font-semibold text-white mb-2">{b.title}</h3>
                   <p className="text-xs text-gray-400 leading-relaxed font-light">{b.desc}</p>
                 </div>
-                <div className="mt-6 pt-4 border-t border-gray-900 font-mono text-[10px] text-gray-500 uppercase tracking-wider">
+                <div className="mt-6 pt-4 border-t border-white/[0.06] font-mono text-[10px] text-gray-500 uppercase tracking-wider">
                   Enforced at Kernel Level
                 </div>
               </div>
@@ -104,10 +104,10 @@ export default function SecurityUseCasesSection() {
       {/* ── Act 09: Editorial Use Cases ── */}
       <section className="max-w-7xl mx-auto px-6 relative z-10" id="use-cases">
         <div className="mb-16 max-w-3xl">
-          <div className="inline-flex items-center gap-2 text-neon-green text-xs font-semibold tracking-[0.2em] uppercase mb-4 border border-neon-green/20 bg-neon-green/5 px-3.5 py-1.5 rounded-full font-mono">
+          <div className="scale-badge mb-4 font-mono">
             <span>ACT 09 // EDITORIAL USE CASES</span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white leading-tight">
+          <h2 className="text-4xl md:text-6xl font-medium tracking-tighter text-white leading-tight">
             Built for engineering teams <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-green to-white font-light italic">
               shipping mission-critical code.
@@ -121,10 +121,10 @@ export default function SecurityUseCasesSection() {
             return (
               <div
                 key={i}
-                className="bg-[#080808] border border-gray-800/90 rounded-2xl p-8 flex flex-col justify-between hover:border-neon-green/40 transition-all group shadow-xl"
+                className="bg-[#080808] border border-white/[0.08] rounded-2xl p-8 flex flex-col justify-between hover:border-neon-green/40 transition-all group shadow-xl scale-corner-plus"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-800/60 font-mono">
+                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/[0.08] font-mono">
                     <span className="text-xs text-neon-green font-bold">{uc.step} // SCENARIO</span>
                     <Icon className="w-5 h-5 text-gray-500 group-hover:text-neon-green transition-colors" />
                   </div>
@@ -133,9 +133,9 @@ export default function SecurityUseCasesSection() {
                   <p className="text-sm text-gray-400 leading-relaxed font-light">{uc.desc}</p>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-gray-800/60 flex items-center justify-between text-xs font-mono text-gray-500">
+                <div className="mt-8 pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs font-mono text-gray-500">
                   <span>Workflo Automated Guarantee</span>
-                  <span className="text-neon-green">Validated ✓</span>
+                  <span className="text-neon-green font-bold">Validated ✓</span>
                 </div>
               </div>
             );
